@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Cal Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/CalSans/CalSans-Regular.woff2') format('woff2'),
+       url('/fonts/CalSans/CalSans-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Manrope/Manrope-Regular.woff2') format('woff2'),
+       url('/fonts/Manrope/Manrope-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/Manrope/Manrope-ExtraBold.woff2') format('woff2'),
+       url('/fonts/Manrope/Manrope-ExtraBold.woff') format('woff');
+  font-display: swap;
+}

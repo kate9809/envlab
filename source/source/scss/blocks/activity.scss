@@ -1,0 +1,144 @@
+.activity {
+  display: flex;
+  background-color: rgba(255, 76, 124, 0.03);
+}
+.activity-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 86px 60px 90px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    max-width: 390px;
+    padding: 72px 16px 48px;
+  }
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-block: 0;
+  padding-inline: 0;
+  margin-top: 99px;
+
+  @media (max-width: 767px) {
+    margin-top: 60px;
+  }
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 168px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    max-height: 270px;
+    gap: 16px;
+  }
+}
+
+.activity-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 76, 124, 0.3);
+}
+
+.activity-item:not(:first-child) {
+  margin-top: 24px;
+}
+
+.item-automation {
+  padding-bottom: 39px;
+
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+}
+
+.item-devOps {
+  padding-bottom: 50px;
+
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+}
+
+.item-development {
+  padding-bottom: 45px;
+  
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+}
+
+.item-support {
+  padding-bottom: 50px;
+
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+}
+
+.activity-title-about {
+  margin: 0;
+  width: 360px;
+
+  @media (max-width: 767px) {
+    width: 358px;
+  }
+}
+
+.activity-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  width: 538px;
+  margin-left: 87px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+
+  @media (max-width: 767px) {
+    width: 358px;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    gap: 12px;
+  }
+}
+
+.activity-specification {
+  margin: 0;
+
+  @media (max-width: 767px) {
+    padding-right: 5px;
+  }
+}
+
+.activity-link {
+  display: block;
+  max-width: 154px;
+  padding-top: 34px;
+  margin-left: 180px;
+
+  @media (max-width: 767px) {
+    max-width: 124px;
+    padding-top: 8px;
+    padding-bottom: 24px;
+    margin-left: 234px;
+  }
+
+  &--last{
+    padding-top: 60px;
+
+    @media (max-width: 767px) {
+      padding-top: 0;
+    }
+  }
+}
+
+
+
