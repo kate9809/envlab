@@ -1,0 +1,34 @@
+.button {
+  width: 256px;
+  font-size: 20px;
+  line-height: 28px;
+  background-color: #fcfcfc;
+  color: #ff4c7c;
+  border: 1px solid #ff4c7c;
+  border-radius: 48px;
+  padding: 14px 20px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 24px;
+    width: 358px;
+    height: 60px;
+    padding: 18px 90px;
+  }
+
+  &--footer {
+    width: 222px;
+    background-color: #1a1a1a;
+
+    @media (max-width: 767px) {
+      width: 358px;
+    }
+  }
+
+  &--studies {
+    background-color: rgba(255, 76, 124, 0.03);
+  }
+}

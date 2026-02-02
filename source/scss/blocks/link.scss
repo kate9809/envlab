@@ -1,0 +1,22 @@
+.link {
+  display: block;
+  color: #ff4c7c;
+  cursor: pointer;
+
+  &--navigation {
+    text-decoration: none;
+    color: #1a1a1a;
+    opacity: 0.3;
+    word-spacing: 8px;
+
+    @media (max-width: 767px) {
+      color: #fcfcfc;
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+
+  &--footer {
+    color: #fcfcfc;
+  }
+}

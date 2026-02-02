@@ -1,0 +1,73 @@
+.title {
+  font-family: "Cal Sans", sans-serif;
+  font-size: 88px;
+  line-height: 101px;
+  font-weight: 400;
+  margin-block: 0;
+  padding-inline: 0;
+
+  @media (max-width: 767px) {
+    font-size: 44px;
+    line-height: 48px;
+  }
+   
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--average {
+    display: block;
+    height: 34px;
+    font-size: 48px;
+    line-height: 34px;
+
+    @media (max-width: 767px) {
+      font-size: 32px;
+      line-height: 34px;
+      height: 36px;
+    }
+  }
+
+  &--small {
+    font-size: 32px;
+    line-height: 34px;
+ 
+    @media (max-width: 767px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &--fact {
+    font-size: 96px;
+
+    @media (max-width: 767px) {
+      font-size: 64px;
+      line-height: 64px;
+    }
+  }
+
+  &--pink {
+   color: #ff4c7c;
+  }
+
+  &--options {
+    margin-left: 599px;
+
+    @media (max-width: 767px) {
+      margin-left: 0;
+    }
+  }
+
+  &--little {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+
+    @media (max-width: 767px) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}

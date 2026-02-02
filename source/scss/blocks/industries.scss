@@ -1,0 +1,372 @@
+.industries {
+ display: flex;
+}
+
+.industries-wrapper {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  padding: 84px 60px 90px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    width: 390px;
+    padding: 44px 16px 38px;
+  }
+}
+
+.industries-title {
+  margin-bottom: 73px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 67px;
+  }
+}
+
+.industries-title-name {
+  list-style: none;
+}
+
+.details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    gap: 28px;
+  }
+}
+
+.industries-list {
+  display: flex;
+  flex-direction: column;
+  width: 1097px;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.3);
+
+  @media (max-width: 767px) {
+    width: 358px;
+  }
+}
+
+.industries-title-name {
+  display: block;
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.title-name-startups {
+  margin-top: 5px;
+}
+
+.title-name-retail  {
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
+
+.title-name-providers {
+  margin-top: 2px;
+  margin-bottom: 3px;
+}
+
+.title-name-education {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.industries-title-name::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 32px;
+  height: 14px;
+  background-image: url("../images/icon/arrow-down.svg");
+  background-size: cover;
+  background-position: center;
+  bottom: 33px;
+
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 10px;
+    bottom: 38px;
+  }
+}
+
+.title-name-manufacturing::after {
+  left: 230px;
+
+  @media (max-width: 767px) {
+    left: 180px;
+  }
+}
+
+.title-name-startups::after {
+  left: 140px;
+
+  @media (max-width: 767px) {
+    left: 110px;
+  }
+}
+
+.title-name-retail::after {
+  left: 95px;
+
+  @media (max-width: 767px) {
+    left: 75px;
+  }
+}
+
+.title-name-providers::after {
+  left: 265px;
+
+  @media (max-width: 767px) {
+    left: 200px;
+  }
+}
+
+.title-name-education::after {
+  left: 165px;
+
+  @media (max-width: 767px) {
+    left: 130px;
+  }
+}
+
+.title-name-finance::after {
+  left: 135px;
+
+  @media (max-width: 767px) {
+    left: 101px;
+  }
+}
+
+.industries-list[open] .industries-title-name::after {
+  transform: rotate(180deg);
+}
+
+.industries-list-about {
+  position: relative;
+  margin-block: 0;
+  padding-inline: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 538px);
+  grid-template-rows: repeat(2, auto);
+  gap: 40px 20px;
+  padding-bottom: 34px;
+
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 42px;
+    gap: 48px;
+    padding-bottom: 29px;
+  }
+}
+
+.list-manufacturing::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/manufacturing@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 34px;
+  right: -224px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.list-retail::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/retail@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 34px;
+  right: -204px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.list-providers::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/providers@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 34px;
+  right: -204px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.list-education::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/education@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 34px;
+  right: -204px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.list-finance::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/finance@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 34px;
+  right: -204px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.industries-title-about {
+  margin: 0;
+  margin-bottom: 16px;
+  padding-right: 210px;
+    
+  @media (max-width: 767px) {
+    padding-right: 0;
+  }
+}
+
+.title-about-small {
+  padding-right: 300px;
+  
+  @media (max-width: 767px) {
+    padding-right: 0;
+  }
+}
+
+.title-about-big {
+  padding-right: 75px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+  }
+}
+
+.title-about-none {
+  padding-right: 15px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+  }
+}
+
+.title-about-little {
+  padding-right: 135px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+  }
+}
+
+.industries-description-about {
+  margin: 0;
+  padding-right: 30px;
+}
+
+.industries-describe {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (max-width: 767px) {
+    height: 262px;
+    margin-top: 24px;
+    gap: 16px;
+  }
+}
+
+.item-describe {
+  grid-column: 2/3;
+}
+
+.describe-sturtaps {
+  position: relative;
+}
+
+.describe-sturtaps::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 204px;
+  height: 369px;
+  background-image: url("../images/pictures/startups@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 0;
+  right: -224px;
+
+  @media (max-width: 767px) {
+    width: 175px;
+    height: 264px;
+    right: 0;
+  }
+}
+
+.industries-describe-title {
+  display: block;
+  line-height: 67px;
+
+  @media (max-width: 767px) {
+    line-height: 64px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.industries-describe-comment {
+  margin: 0;
+  padding-right: 250px;
+
+  @media (max-width: 767px) {
+    padding-right: 200px;
+  }
+}
+
+.comment-startups {
+  @media (max-width: 767px) {
+    padding-right: 150px;
+    position: relative;
+    z-index: 1;
+  }
+}
