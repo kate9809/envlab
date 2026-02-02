@@ -13,7 +13,7 @@
 
   @media (max-width: 767px) {
     width: 290px;
-    min-height: 844px;
+    min-height: 444px;
     flex-wrap: wrap;
     flex-direction: column;
     margin: 0 auto;
@@ -178,4 +178,22 @@
     height: 1px;
     border-bottom: 1px solid #1a1a1a;
   }
+}
+
+.main-navigation--nojs .main-navigation-toggle {
+  display: none;
+}
+
+.main-navigation--nojs .main-navigation-wrapper {
+  position: static;
+  min-height: 0;
+  transform: none;
+}
+
+.main-navigation--nojs .main-navigation-wrapper::after {
+  display: none;
+}
+
+.main-navigation--nojs .main-navigation-item {
+  display: block;
 }
