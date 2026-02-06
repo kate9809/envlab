@@ -225,3 +225,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//popup
+
+const buttons = document.querySelectorAll('.popup-button');
+const overlay = document.getElementById('popup-overlay');
+const closeButton = document.getElementById('popup-close');
+
+// Функция для открытия попапа
+function openPopup() {
+  overlay.style.display = 'flex';
+}
+
+// Функция для закрытия попапа
+function closePopup() {
+  overlay.style.display = 'none';
+}
+
+// Навешиваем обработчик клика на каждую кнопку
+buttons.forEach(button => {
+  button.addEventListener('click', function (e) {
+    e.preventDefault(); // отменяем стандартное поведение ссылки
+    openPopup();
+  });
+});
+
+// Закрываем попап по кнопке "Закрыть"
+closeButton.addEventListener('click', closePopup);
+
+// Закрываем попап при клике на фон
+overlay.addEventListener('click', function (e) {
+  if (e.target === overlay) {
+    closePopup();
+  }
+});
+
+
+
+

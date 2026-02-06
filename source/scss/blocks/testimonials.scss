@@ -58,12 +58,14 @@
   @media (max-width: 767px) {
     margin-top: 24px;
     padding-left: 16px;
+    padding-right: 0;
     display: flex;
     gap: 16px;
+    overflow-x: auto;
     position: relative;
-    overflow: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    mask-image: linear-gradient(to right, black 99%, transparent);
   }
 }
 
@@ -73,14 +75,14 @@
   flex-wrap: wrap;
   width: 538px;
   padding-right: 26px;
+  scroll-snap-align: start;
 
   @media (max-width: 767px) {
-    max-width: 338px;
-    min-width: 338px;
+    flex: 0 0 338px;
     flex-shrink: 0;
     padding-right: 0;
-    transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
-    opacity: 0.3; /* Все блоки — полупрозрачные по умолчанию */
+    transition: opacity 0.3s ease;
+    opacity: 0.3;
   }
 }
 
@@ -103,7 +105,7 @@
   @media (max-width: 767px) {
     max-width: 334px;
     min-width: 334px;
-    margin-bottom: 0;
+    margin: 0 0 24px 0;
   }
 }
 

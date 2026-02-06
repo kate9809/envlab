@@ -73,16 +73,7 @@
             </ul>
           </div>
         </nav>
-        <a class="header-modal link" id="header-btn">Get a free consultation
-          <script>
-            document.getElementById('header-btn').onclick = () => {
-              window.open(
-                'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true',
-                '_blank'
-              );
-            };
-          </script>
-        </a>
+        <a class="header-modal link popup-button">Get a free consultation</a>
       </div>
     </header>
 
@@ -112,16 +103,7 @@
                 infrastructure, implement ERPNext step by step,
                 and automate operations — without painful rollouts or vendor lock-in.</p>
               <div class="hero-link-wrapper">
-                <button class="hero-button button" id="hero-btn">Get a free consultation
-                  <script>
-                    document.getElementById('hero-btn').onclick = () => {
-                      window.open(
-                        'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true',
-                        '_blank'
-                      );
-                    };
-                  </script>
-                </button>
+                <button class="hero-button button popup-button">Get a free consultation</button>            
                 <a class="hero-link link" href="https://envlab.tech/casestudies">See case studies</a>
               </div>
             </div>
@@ -212,7 +194,7 @@
           <div class="industries-wrapper">
             <h2 class="industries-title title title--average title--uppercase">Industries</h2>
             <div class="details-wrapper">
-              <details class="industries-list" name="block" open>
+              <details class="industries-list" open>
                 <summary class="industries-title-name title-name-manufacturing title title--small ">Manufacturing
                 </summary>
                 <ul class="industries-list-about list-manufacturing">
@@ -259,7 +241,7 @@
                   </li>
                 </ul>
               </details>
-              <details class="industries-list" name="block">
+              <details class="industries-list">
                 <summary class="industries-title-name title-name-startups title title--small">Startups</summary>
                 <ul class="industries-list-about list-startups">
                   <li class="industries-item-about">
@@ -299,7 +281,7 @@
                   </li>
                 </ul>
               </details>
-              <details class="industries-list" name="block">
+              <details class="industries-list">
                 <summary class="industries-title-name title-name-retail title title--small">Retail</summary>
                 <ul class="industries-list-about  list-retail">
                   <li class="industries-item-about">
@@ -352,7 +334,7 @@
                   </li>
                 </ul>
               </details>
-              <details class="industries-list" name="block">
+              <details class="industries-list">
                 <summary class="industries-title-name title-name-providers title title--small">Service Providers
                 </summary>
                 <ul class="industries-list-about  list-providers">
@@ -403,7 +385,7 @@
                   </li>
                 </ul>
               </details>
-              <details class="industries-list" name="block">
+              <details class="industries-list">
                 <summary class="industries-title-name title-name-education title title--small">Education</summary>
                 <ul class="industries-list-about  list-education">
                   <li class="industries-item-about">
@@ -457,7 +439,7 @@
                   </li>
                 </ul>
               </details>
-              <details class="industries-list" name="block">
+              <details class="industries-list">
                 <summary class="industries-title-name title-name-finance title title--small">Finance</summary>
                 <ul class="industries-list-about  list-finance">
                   <li class="industries-item-about">
@@ -739,16 +721,7 @@
             <p class="application-information">We'll map your business processes and propose a step-by-step roadmap,
               no
               obligation.</p>
-            <button class="application-button button button--footer" id="consult-btn">Book a slot
-              <script>
-                document.getElementById('consult-btn').onclick = () => {
-                  window.open(
-                    'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true',
-                    '_blank'
-                  );
-                };
-              </script>
-            </button>
+            <button class="application-button button button--footer popup-button">Book a slot</button>
           </div>
         </div>
         <div class="contacts-wrapper">
@@ -803,6 +776,15 @@
         </div>
       </div>
     </footer>
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-content">
+        <button class="popup-close" id="popup-close">Закрыть</button>
+        <iframe class="popup-iframe"
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true"
+          title="Календарь для записи">
+        </iframe>
+      </div>
+    </div>
 
     <script src="js/main.js"></script>
   </div>
