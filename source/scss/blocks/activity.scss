@@ -32,12 +32,9 @@
 .activity-item {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  max-height: 168px;
 
   @media (max-width: 767px) {
     flex-direction: column;
-    max-height: 270px;
     gap: 16px;
   }
 }

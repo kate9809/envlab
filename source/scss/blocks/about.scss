@@ -1,0 +1,200 @@
+.about {
+  display: flex;
+  background-color: rgba(255, 76, 124, 0.03);
+}
+
+.about-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 84px 60px 132px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    max-width: 390px;
+    padding: 72px 16px 88px;
+  }
+}
+
+.about-title {
+  max-width: 335px;
+
+  @media (max-width: 767px) {
+    max-width: 276px;
+    margin-bottom: 36px;
+  }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 761px;
+  margin: 0 52px 0 112px;
+  gap: 56px;
+
+  @media (max-width: 767px) {
+    max-width: 358px;
+    margin: 0;
+  }
+}
+
+.about-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  
+  @media (max-width: 767px) {
+    gap: 16px;
+  }
+}
+
+.about-describe-container {
+  display: grid;
+  grid-template-columns: repeat(3, 235px);
+  grid-template-rows: repeat(2, 152px);
+  gap: 40px 28px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 174px);
+    grid-template-rows: repeat(3, 180px);
+    gap: 24px 8px;
+  }
+}
+
+.about-description {
+  margin: 0;
+}
+
+.about-describe {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 56px;
+
+  @media (max-width: 767px) {
+    gap: 8px;
+    padding-top: 44px;
+  }
+}
+
+.about-describe-permissions {
+  @media (max-width: 767px) {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+}
+
+.about-describe-no-code::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-no-code.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+    
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-describe-customizable::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-customizable.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-describe-permissions::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-permissions.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-describe-friendly::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-mobile-friendly.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-describe-workflows::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-workflows.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-describe-first::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/icon/icon-api.svg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.about-definition {
+  margin: 0;
+}

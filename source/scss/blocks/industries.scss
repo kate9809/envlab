@@ -77,16 +77,16 @@
   position: absolute;
   content: "";
   display: block;
-  width: 32px;
-  height: 14px;
+  width: 35px;
+  height: 18px;
   background-image: url("../images/icon/arrow-down.svg");
   background-size: cover;
   background-position: center;
   bottom: 33px;
 
   @media (max-width: 767px) {
-    width: 24px;
-    height: 10px;
+    width: 27px;
+    height: 13px;
     bottom: 38px;
   }
 }
@@ -156,7 +156,7 @@
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
-    margin-top: 42px;
+    margin-top: 23px;
     gap: 48px;
     padding-bottom: 29px;
   }
@@ -365,8 +365,6 @@
 
 .comment-startups {
   @media (max-width: 767px) {
-    padding-right: 150px;
-    position: relative;
-    z-index: 1;
+    padding-right: 180px;
   }
 }

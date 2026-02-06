@@ -139,70 +139,89 @@ navToggle.addEventListener('click', function () {
 
 //testimonials
 
-document.addEventListener('DOMContentLoaded', function () {
-  const list = document.querySelector('.testimonials-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const testimonialsList = document.querySelector('.testimonials-list');
   const items = document.querySelectorAll('.testimonials-item');
-  const prevBtn = document.querySelector('.testimonials-button.prev');
-  const nextBtn = document.querySelector('.testimonials-button.next');
-  const currentCounter = document.querySelector('.counter-current');
-  const totalCounter = document.querySelector('.counter-total');
+  const prevButton = document.querySelector('.testimonials-button.prev');
+  const nextButton = document.querySelector('.testimonials-button.next');
+  const counterCurrent = document.querySelector('.counter-current');
+  const counterTotal = document.querySelector('.counter-total');
 
   let currentIndex = 0;
   const totalItems = items.length;
-  const itemWidth = items[0].offsetWidth;
-  const gap = 16; // Значение из CSS (gap: 16px)
+  const gap = 16; // Заданный gap между элементами (в пикселях)
 
   // Инициализация
-  totalCounter.textContent = totalItems;
+  counterTotal.textContent = totalItems;
   updateCounter();
   updateButtons();
 
-  // Обновление счётчика
-  function updateCounter() {
-    currentCounter.textContent = currentIndex + 1;
-  }
+  // Медиа-запрос для мобильной версии
+  const mediaQuery = window.matchMedia('(max-width: 767px)');
 
-  // Активация/деактивация кнопок
-  function updateButtons() {
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === totalItems - 1;
-    prevBtn.classList.toggle('disabled', prevBtn.disabled);
-    nextBtn.classList.toggle('disabled', nextBtn.disabled);
-  }
-
-  // Прокрутка к блоку по индексу
-  function scrollToIndex(index) {
-    const scrollPosition = index * (itemWidth + gap);
-    list.scrollTo({
-      left: scrollPosition,
-      behavior: 'smooth'
-    });
-
-    // Обновляем классы активности
-    items.forEach((item, i) => {
-      item.classList.toggle('active', i === index);
-    });
-
-    currentIndex = index;
-    updateCounter();
-    updateButtons();
-  }
-
-  // Обработчики кнопок
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < totalItems - 1) {
-      scrollToIndex(currentIndex + 1);
+  const handleResize = () => {
+    if (mediaQuery.matches) {
+      // Мобильная версия — включаем логику прокрутки
+      prevButton.addEventListener('click', onPrevClick);
+      nextButton.addEventListener('click', onNextClick);
+    } else {
+      // Десктоп — убираем обработчики, сбрасываем стили
+      prevButton.removeEventListener('click', onPrevClick);
+      nextButton.removeEventListener('click', onNextClick);
+      testimonialsList.style.transform = 'translateX(0)';
+      items.forEach(item => item.classList.remove('active'));
+      if (items[0]) items[0].classList.add('active');
     }
-  });
+  };
 
-  prevBtn.addEventListener('click', () => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+
+  // Функции
+  function onPrevClick() {
     if (currentIndex > 0) {
-      scrollToIndex(currentIndex - 1);
+      currentIndex--;
+      scrollToItem();
+      updateCounter();
+      updateButtons();
     }
-  });
+  }
 
-  // Начальное состояние: первый блок активен
-  items[0].classList.add('active');
+  function onNextClick() {
+    if (currentIndex < totalItems - 1) {
+      currentIndex++;
+      scrollToItem();
+      updateCounter();
+      updateButtons();
+    }
+  }
+
+  function scrollToItem() {
+    // Ширина одного элемента (с учётом flex-shrink: 0)
+    const itemWidth = items[currentIndex].offsetWidth;
+    // Общий сдвиг: ширина элемента + gap (но не для первого элемента)
+    const offset = currentIndex * (itemWidth + gap);
+
+    testimonialsList.style.transform = `translateX(-${offset}px)`;
+
+    // Обновляем классы active
+    items.forEach((item, index) => {
+      item.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function updateCounter() {
+    counterCurrent.textContent = currentIndex + 1;
+  }
+
+  function updateButtons() {
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === totalItems - 1;
+
+    // Добавляем/убираем класс disabled для стилизации
+    prevButton.classList.toggle('disabled', prevButton.disabled);
+    nextButton.classList.toggle('disabled', nextButton.disabled);
+  }
 });
 
 

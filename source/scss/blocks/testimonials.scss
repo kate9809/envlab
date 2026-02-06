@@ -53,12 +53,9 @@
   margin-block: 0;
   padding-inline: 0;
   margin-top: 78px;
-  max-width: 1320px;
   padding-right: 214px;
 
   @media (max-width: 767px) {
-    max-width: 390px;
-    width: 390px;
     margin-top: 24px;
     padding-left: 16px;
     display: flex;
@@ -80,6 +77,7 @@
   @media (max-width: 767px) {
     max-width: 338px;
     min-width: 338px;
+    flex-shrink: 0;
     padding-right: 0;
     transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
     opacity: 0.3; /* Все блоки — полупрозрачные по умолчанию */
@@ -88,14 +86,6 @@
 
 .testimonials-item.active {
   opacity: 1;
-}
-
-.testimonials-item:last-child {
-  margin-top: 50px;
-
-  @media (max-width: 767px) {
-    margin-top: 0;
-  }
 }
 
 .testimonials-item:nth-child(2) {

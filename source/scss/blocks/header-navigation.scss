@@ -166,12 +166,11 @@
     z-index: 2;
     transform: scaleY(1);
     transform-origin: top;
-    transition: transform 1s;
     background-color: #1a1a1a;
   }
 }
 
-/*.header-navigation--opened .header-navigation-wrapper::after {
+.header-navigation--opened .header-navigation-wrapper::after {
   @media (max-width: 767px) {
     position: absolute;
     content: "";
@@ -180,7 +179,7 @@
     height: 1px;
     border-bottom: 1px solid #1a1a1a;
   }
-}*/
+}
 
 .main-navigation--nojs .main-navigation-toggle {
   display: none;

@@ -8,10 +8,23 @@
     color: #1a1a1a;
     opacity: 0.3;
     word-spacing: 8px;
+    word-spacing: normal;
 
     @media (max-width: 767px) {
       color: #fcfcfc;
       text-decoration: underline;
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+      
+    &:focus-visible {
+      opacity: 1;
+    }
+      
+    &:active {
       opacity: 1;
     }
   }
