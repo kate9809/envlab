@@ -5,37 +5,72 @@
 .assistant-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 84px 0 111px 60px;
+  padding: 70px 0 111px 60px;
   margin: 0 auto;
-  max-width: 100%;
+  width: 1440px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 48px;
+    padding: 72px 0 80px;
+  }
 }
 
 .assistant-title {
   max-width: 335px;
+  
+  @media (max-width: 767px) {
+    display: block;
+    max-width: 358px;
+    min-height: 72px;
+    padding-right: 20px;
+    margin-left: 16px;
+  }
 }
 
 .assistant-list-wrapper {
   display: flex;
   flex-direction: column;
   min-width: 1045px;
+  margin-top: 10px;
+
+  @media (max-width: 767px) {
+    min-width: 390px;
+    gap: 48px;
+    margin-top: 0;
+  }
 }
 
 .assistant-description {
   margin-block: 0;
-  margin-left: 112px;
+  margin-left: 210px;
   font-size: 32px;
   line-height: 42px;
-  padding: 0 173px 84px 0;
+  padding: 0 173px 80px 0;
+
+  @media (max-width: 767px) {
+    margin: 0 16px;
+    font-size: 20px;
+    line-height: 28px;
+    padding: 0;
+  }
 }
 
 .assistant-list {
   margin-block: 0;
   padding-inline: 0;
-  margin-left: 112px;
+  margin-left: 210px;
   display: grid;
   grid-template-columns: repeat(2, 426px);
   grid-template-rows: repeat(3, auto);
-  gap: 71px 20px;
+  gap: 61px 20px;
+
+  @media (max-width: 767px) {
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+  }
 }
 
 .assistant-item-action {
@@ -46,7 +81,11 @@
 .assistant-item {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+
+  @media (max-width: 767px) {
+    gap: 12px;
+  }
 }
 
 .assistant-describe {
@@ -54,27 +93,49 @@
 }
 
 .assistant-describe-big { 
-  padding-right: 226px;
+  padding-right: 225px;
+
+  @media (max-width: 767px) {
+   padding-right: 10px;
+  }
+}
+
+.assistant-item-additional {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 56px 0 95px 112px;
+  background-color: rgba(255, 76, 124, 0.03);
+  margin-left: 100px;
+
+  @media (max-width: 767px) {
+    margin-right: 16px;
+    padding: 48px 50px 40px 16px;
+    gap: 12px;
+    margin-left: 0;
+  }
 }
 
 .assistant-above-wrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
 }
 
 .above-wrapper-built {
   padding-right: 20px;
 }
 
-.assistant-above {
-  margin-block: 0;
+.above-wrapper-useful {
+  @media (max-width: 767px) {
+    padding-right: 16px;
+  }  
 }
 
-.assistant-item-additional {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 56px 0 95px 112px;
-  background-color: rgba(255, 76, 124, 0.03);
+.assistant-above {
+  margin-block: 0;
 }

@@ -8,7 +8,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 84px 60px 132px;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 
   @media (max-width: 767px) {
@@ -42,10 +42,10 @@
 .about-description-container {
   display: flex;
   flex-direction: column;
-  gap: 38px;
+  gap: 30px;
   
   @media (max-width: 767px) {
-    gap: 16px;
+    gap: 8px;
   }
 }
 
@@ -57,7 +57,7 @@
 
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, 174px);
-    grid-template-rows: repeat(3, 180px);
+    grid-template-rows: repeat(3, auto);
     gap: 24px 8px;
   }
 }

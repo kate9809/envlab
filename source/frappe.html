@@ -54,19 +54,19 @@
         </a>
         <nav class="header-navigation header-navigation--closed">
           <button class="header-navigation-toggle" type="button">
-            <span class="visually-hidden">Открыть меню</span>
+            <span class="visually-hidden">Open</span>
           </button>
           <div class="header-navigation-wrapper">
             <ul class="header-navigation-list">
               <li class="header-navigation-item">
-                <a class="header-navigation-link link link--navigation link--active"
-                  href="https://envlab.tech/frappe">frappe</a>
+                <a class="header-navigation-link link link--navigation link--active" href="https://envlab.tech/frappe">frappe</a>
               </li>
               <li class="header-navigation-item">
                 <a class="header-navigation-link link link--navigation" href="https://envlab.tech/services">services</a>
               </li>
               <li class="header-navigation-item">
-                <a class="header-navigation-link link link--navigation" href="https://envlab.tech/casestudies">case studies</a>
+                <a class="header-navigation-link link link--navigation" href="https://envlab.tech/casestudies">case
+                  studies</a>
               </li>
               <li class="header-navigation-item">
                 <a class="header-navigation-link link link--navigation" href="https://envlab.tech/contactus">contact</a>
@@ -74,16 +74,7 @@
             </ul>
           </div>
         </nav>
-        <a class="header-modal link" id="header-btn">Get a free consultation
-          <script>
-            document.getElementById('header-btn').onclick = () => {
-              window.open(
-                'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true',
-                '_blank'
-              );
-            };
-          </script>
-        </a>
+        <a class="header-modal link popup-button">Get a free consultation</a>
       </div>
     </header>
 
@@ -115,7 +106,7 @@
               <dl class="product-describe describe-gameplan">
                 <dt class="product-title title title--little">Gameplan</dt>
                 <dd class="product-definition">Delightful work communication tool for remote teams</dd>
-              </dl>           
+              </dl>
               <dl class="product-describe describe-crm">
                 <dt class="product-title title title--little">CRM</dt>
                 <dd class="product-definition">The future of open source CRM</dd>
@@ -139,7 +130,7 @@
               <dl class="product-describe describe-helpdesk">
                 <dt class="product-title title title--little">Helpdesk</dt>
                 <dd class="product-definition">Well designed, open source helpdesk software</dd>
-              </dl>      
+              </dl>
               <dl class="product-describe describe-school">
                 <dt class="product-title title title--little">School</dt>
                 <dd class="product-definition">Makes learning ERPNext easier for consultants, partners, and the world
@@ -219,143 +210,206 @@
         <section class="comparison">
           <div class="comparison-wrapper">
             <h2 class="comparison-title title title--average title--uppercase">ERPNext vs. other ERP Softwares</h2>
-            <div class="comparison-wrapper-button">
-              <button class="comparison-button prev button" aria-label="prev" disabled>←</button>
-              <button class="comparison-button next button" aria-label="next">→</button>
+            <div class="comparison-table">
+              <p class="table-heading name-softwares name-features column-color">Softwares</p>
+              <p class="table-heading name-license name-features table-border">License</p>
+              <p class="table-heading name-level name-features table-border">Cost Level</p>
+              <p class="table-heading name-deployment name-features table-border">Deployment</p>
+              <p class="table-heading name-best name-features table-border">Best for</p>
+              <p class="table-heading name-customization name-features table-border">Customization</p>
+              <p class="table-heading name-depth name-features table-border">Functionality Depth</p>
+              <p class="table-heading name-implementation name-features table-border">Typical Implementation</ptd>
+              <p class="table-heading name-strengths name-features table-border">Strengths</p>
+              <p class="table-heading name-limitations name-features">Limitations</p>
+              <p class="table-name name-color column-color name-erpnext">ERPNext</p>
+              <p class="table-name column-color name-odoo">Odoo</p>
+              <p class="table-name column-color name-sap">SAP S/4HANA</p>
+              <p class="table-name column-color name-oracle">Oracle Fusion ERP</p>
+              <p class="table-name column-color name-dynamics">Dynamics 365</p>
+              <p class="table-cell table-border cell-source">Open-source</p>
+              <p class="table-cell table-border cell-community cell-desktop">Community (open source) & Enterprise
+                (proprietary, paid
+                features/support)</p>
+              <p class="table-cell table-border cell-pro-first">Proprietary</p>
+              <p class="table-cell table-border cell-pro-second">Proprietary</p>
+              <p class="table-cell table-border cell-pro-third">Proprietary</p>
+              <p class="table-cell table-border cell-low">Low</p>
+              <p class="table-cell table-border cell-lowtomedium">Low to Medium</p>
+              <p class="table-cell table-border cell-veryhigh-first">Very high</p>
+              <p class="table-cell table-border cell-veryhigh-second">Very high</p>
+              <p class="table-cell table-border cell-mediumtohigh">Medium to High</p>
+              <p class="table-cell table-border cell-selfhost-first">Cloud / Self-host</p>
+              <p class="table-cell table-border cell-selfhost-second">Cloud / Self-host</p>
+              <p class="table-cell table-border cell-onprem">Cloud / On-prem</p>
+              <p class="table-cell table-border cell-only">Cloud-only</p>
+              <p class="table-cell table-border cell-hybrid">Cloud / Hybrid / On-prem</p>
+              <p class="table-cell table-border cell-smb-first">SMBs and cost-sensitive teams</p>
+              <p class="table-cell table-border cell-smb-second">SMBs to mid-market</p>
+              <p class="table-cell table-border cell-large-first">Large enterprises</p>
+              <p class="table-cell table-border cell-large-second">Large enterprises</p>
+              <p class="table-cell table-border cell-smb-third">SMBs to enterprise</p>
+              <p class="table-cell table-border cell-highly">Highly customizable</p>
+              <p class="table-cell table-border cell-customizable-first">Customizable</p>
+              <p class="table-cell table-border cell-customizable-second">Customizable but complex</p>
+              <p class="table-cell table-border cell-customizable-third">Customizable but costly</p>
+              <p class="table-cell table-border cell-customizable-fourth">Highly customizable with Power Platform</p>
+              <p class="table-cell table-border cell-solid">Solid full-suite ERP for SMBs</p>
+              <p class="table-cell table-border cell-broad">Very broad modules, depth varies by app</p>
+              <p class="table-cell table-border cell-extremely">Extremely deep, enterprise-grade, industry-specific</p>
+              <p class="table-cell table-border cell-deep">Deep financials & enterprise operations</p>
+              <p class="table-cell table-border cell-mature">Broad & mature, strengthened by MS ecosystem</p>
+              <p class="table-cell table-border cell-weeks-first">Weeks to few months</p>
+              <p class="table-cell table-border cell-weeks-second">Weeks to months</p>
+              <p class="table-cell table-border cell-months-first">Months to years</p>
+              <p class="table-cell table-border cell-months-second">Months to years</p>
+              <p class="table-cell table-border cell-months-third">Months</p>
+              <p class="table-cell table-border cell-flexible">Low TCO, flexible, no vendor lock-in</p>
+              <p class="table-cell table-border cell-modular">Modular, user-friendly</p>
+              <p class="table-cell table-border cell-depth">Industry depth, scalability</p>
+              <p class="table-cell table-border cell-cloud-native">Cloud-native enterprise financials</p>
+              <p class="table-cell table-border cell-strong">Strong MS integration</p>
+              <p class="table-cell cell-fewer">Fewer enterprise industry packs</p>
+              <p class="table-cell cell-costs">Enterprise edition costs add up</p>
+              <p class="table-cell cell-complex">Very expensive, complex</p>
+              <p class="table-cell cell-rigid">Expensive, rigid</p>
+              <p class="table-cell cell-complexit">Licensing complexity</p>
             </div>
-            <table class="comparison-table">
-              <thead class="table-header">
-                <tr class="table-line">
-                  <th class="table-cell">Softwares</th>
-                  <th class="table-cell">ERPNext</th>
-                  <th class="table-cell">Odoo</th>
-                  <th class="table-cell">SAP S/4HANA</th>
-                  <th class="table-cell">Oracle Fusion ERP</th>
-                  <th class="table-cell">Dynamics 365</th>
-                </tr>
-              </thead>
-              <tbody class="table-body">
-                <tr class="table-line">
-                  <td class="table-cell">License</td>
-                  <td class="table-cell">Open-source</td>
-                  <td class="table-cell">Community (open source) & Enterprise (proprietary, paid features/support)</td>
-                  <td class="table-cell">Proprietary</td>
-                  <td class="table-cell">Proprietary</td>
-                  <td class="table-cell">Proprietary</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Cost Level</td>
-                  <td class="table-cell">Low</td>
-                  <td class="table-cell">Low to Medium</td>
-                  <td class="table-cell">Very high</td>
-                  <td class="table-cell">Very high</td>
-                  <td class="table-cell">Medium to High</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Deployment</td>
-                  <td class="table-cell">Cloud / Self-host</td>
-                  <td class="table-cell">Cloud / Self-host</td>
-                  <td class="table-cell">Cloud / On-prem</td>
-                  <td class="table-cell">Cloud-only</td>
-                  <td class="table-cell">Cloud / Hybrid / On-prem</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Best for</td>
-                  <td class="table-cell">SMBs and cost-sensitive teams</td>
-                  <td class="table-cell">SMBs to mid-market</td>
-                  <td class="table-cell">Large enterprises</td>
-                  <td class="table-cell">Large enterprises</td>
-                  <td class="table-cell">SMBs to enterprise</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Customization</td>
-                  <td class="table-cell">Highly customizable</td>
-                  <td class="table-cell">Customizable</td>
-                  <td class="table-cell">Customizable but complex</td>
-                  <td class="table-cell">Customizable but costly</td>
-                  <td class="table-cell">Highly customizable with Power Platform</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Functionality Depth</td>
-                  <td class="table-cell">Solid full-suite ERP for SMBs</td>
-                  <td class="table-cell">Very broad modules, depth varies by app</td>
-                  <td class="table-cell">Extremely deep, enterprise-grade, industry-specific</td>
-                  <td class="table-cell">Deep financials & enterprise operations</td>
-                  <td class="table-cell">Broad & mature, strengthened by MS ecosystem</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Typical Implementation</td>
-                  <td class="table-cell">Weeks to few months</td>
-                  <td class="table-cell">Weeks to months</td>
-                  <td class="table-cell">Months to years</td>
-                  <td class="table-cell">Months to years</td>
-                  <td class="table-cell">Months</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Strengths</td>
-                  <td class="table-cell">Low TCO, flexible, no vendor lock-in</td>
-                  <td class="table-cell">Modular, user-friendly</td>
-                  <td class="table-cell">Industry depth, scalability</td>
-                  <td class="table-cell">Cloud-native enterprise financials</td>
-                  <td class="table-cell">Strong MS integration</td>
-                </tr>
-                <tr class="table-line">
-                  <td class="table-cell">Limitations</td>
-                  <td class="table-cell">Fewer enterprise industry packs</td>
-                  <td class="table-cell">Enterprise edition costs add up</td>
-                  <td class="table-cell">Very expensive, complex</td>
-                  <td class="table-cell">Expensive, rigid</td>
-                  <td class="table-cell">Licensing complexity</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="comparison-table-wrapper">
+              <div class="comparison-wrapper-button">
+                <button class="comparison-button prev button button--comparision" aria-label="prev" disabled>←</button>
+                <button class="comparison-button next button button--comparision" aria-label="next">→</button>
+              </div>
+              <div class="comparison-mobile-table">
+                <div class="table-mobile-column column-pink">
+                  <p class="table-mobile-heading heading-min name-features">Softwares</p>
+                  <p class="table-mobile-name name-color">ERPNext</p>
+                  <p class="table-mobile-name name-sap">SAP S/4HANA</p>
+                  <p class="table-mobile-name">Odoo</p>
+                  <p class="table-mobile-name">Oracle Fusion ERP</p>
+                  <p class="table-mobile-name"> MS Dynamics 365</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">License</p>
+                  <p class="table-mobile-cell">Open-source</p>
+                  <p class="table-mobile-cell">Community & Enterprise</p>
+                  <p class="table-mobile-cell">Proprietary</p>
+                  <p class="table-mobile-cell">Proprietary</p>
+                  <p class="table-mobile-cell">Proprietary</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Cost Level</p>
+                  <p class="table-mobile-cell">Low</p>
+                  <p class="table-mobile-cell">Low to Medium</p>
+                  <p class="table-mobile-cell">Very high</p>
+                  <p class="table-mobile-cell">Very high</p>
+                  <p class="table-mobile-cell">Medium to High</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Deployment</p>
+                  <p class="table-mobile-cell">Cloud / Self-host</p>
+                  <p class="table-mobile-cell">Cloud / Self-host</p>
+                  <p class="table-mobile-cell">Cloud / On-prem</p>
+                  <p class="table-mobile-cell">Cloud-only</p>
+                  <p class="table-mobile-cell">Cloud / Hybrid / On-prem</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Best for</p>
+                  <p class="table-mobile-cell">SMBs and cost-sensitive teams</p>
+                  <p class="table-mobile-cell">SMBs to mid-market</p>
+                  <p class="table-mobile-cell">Large enterprises</p>
+                  <p class="table-mobile-cell">Large enterprises</p>
+                  <p class="table-mobile-cell">SMBs to enterprise</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Customization</p>
+                  <p class="table-mobile-cell">Highly customizable</p>
+                  <p class="table-mobile-cell">Customizable</p>
+                  <p class="table-mobile-cell">Customizable but complex</p>
+                  <p class="table-mobile-cell">Customizable but costly</p>
+                  <p class="table-mobile-cell">Highly customizable with Power Platform</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Functionality Depth</p>
+                  <p class="table-mobile-cell">Solid full-suite ERP for SMBs</p>
+                  <p class="table-mobile-cell">Very broad modules, depth varies by app</p>
+                  <p class="table-mobile-cell">Extremely deep, enterprise-grade, industry-specific</p>
+                  <p class="table-mobile-cell">Deep financials & enterprise operations</p>
+                  <p class="table-mobile-cell">Broad & mature, strengthened by MS ecosystem</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Typical Implementation</ptd>
+                  <p class="table-mobile-cell">Weeks to few months</p>
+                  <p class="table-mobile-cell">Weeks to months</p>
+                  <p class="table-mobile-cell">Months to years</p>
+                  <p class="table-mobile-cell">Months to years</p>
+                  <p class="table-mobile-cell">Months</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Strengths</p>
+                  <p class="table-mobile-cell">Low TCO, flexible, no vendor lock-in</p>
+                  <p class="table-mobile-cell">Modular, user-friendly</p>
+                  <p class="table-mobile-cell">Industry depth, scalability</p>
+                  <p class="table-mobile-cell">Cloud-native enterprise financials</p>
+                  <p class="table-mobile-cell">Strong MS integration</p>
+                </div>
+                <div class="table-mobile-column">
+                  <p class="table-mobile-heading name-features">Limitations</p>
+                  <p class="table-mobile-cell">Fewer enterprise industry packs</p>
+                  <p class="table-mobile-cell">Enterprise edition costs add up</p>
+                  <p class="table-mobile-cell ">Very expensive, complex</p>
+                  <p class="table-mobile-cell">Expensive, rigid</p>
+                  <p class="table-mobile-cell">Licensing complexity</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-
-        <section class="builder">
-          <div class="builder-wrapper">
-            <h2 class="builder-title title title--average title--uppercase">ERPNext Modules</h2>
-            <ul class="builder-list">
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Accounting</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Procurement</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Sales</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">CRM</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Stock</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Manufacturing</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Projects</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Point of Sale</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Assets</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Quality</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">Support</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">HR & Payroll</a>
-              </li>
-              <li class="builder-item">
-                <a class="builder-link link" href="#">No-Code Builder</a>
-              </li>
-            </ul>
+        <section class="builder builder--pink">
+          <div class="builder-container">
+            <div class="builder-wrapper">
+              <h2 class="builder-title title title--average title--uppercase">ERPNext Modules</h2>
+              <ul class="builder-list">
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Accounting</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Procurement</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Sales</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">CRM</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Stock</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Manufacturing</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Projects</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Point of Sale</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Assets</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Quality</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">Support</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">HR & Payroll</a>
+                </li>
+                <li class="builder-item">
+                  <a class="builder-link link" href="#">No-Code Builder</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -363,16 +417,18 @@
           <div class="assistant-wrapper">
             <h2 class="assistant-title title title--average title--uppercase">Frappe Assistant Core</h2>
             <div class="assistant-list-wrapper">
-              <p class="assistant-description">Give any Large Language Model (ChatGPT, Claude, or any MCP-compatible assistant) the ability to interact directly with
+              <p class="assistant-description">Give any Large Language Model (ChatGPT, Claude, or any MCP-compatible
+                assistant) the ability to interact directly with
                 ERPNext using standardized, secure protocols.</p>
               <ul class="assistant-list">
                 <li class="assistant-item assistant-item-action">
                   <h3 class="assistant-title-about title title--small">What It Does</h3>
-                    <p class="assistant-describe assistant-describe-big">Frappe Assistant Core connects your ERPNext system to AI assistants,
-                      letting you manage your business data through
-                      natural conversation. Create records, pull reports, analyze trends, and build dashboards — all by
-                      simply describing what
-                      you want.</p>
+                  <p class="assistant-describe assistant-describe-big">Frappe Assistant Core connects your ERPNext
+                    system to AI assistants,
+                    letting you manage your business data through
+                    natural conversation. Create records, pull reports, analyze trends, and build dashboards — all by
+                    simply describing what
+                    you want.</p>
                 </li>
                 <li class="assistant-item assistant-item-built">
                   <h3 class="assistant-title-about title title--small">Built for Real Business Use</h3>
@@ -386,18 +442,18 @@
                 </li>
                 <li class="assistant-item assistant-item-useful">
                   <h3 class="assistant-title-about title title--small">Useful For</h3>
-                  <div class="assistant-above-wrapper">
+                  <div class="assistant-above-wrapper above-wrapper-useful">
                     <p class="assistant-above">Business users who want answers fast</p>
                     <p class="assistant-above">Ops teams needing instant document creation and data lookups</p>
                     <p class="assistant-above">Developers building AI-powered ERP workflows</p>
                     <p class="assistant-above">Companies looking to boost productivity without replacing their existing
-                    systems</p>
+                      systems</p>
                   </div>
                 </li>
               </ul>
               <div class="assistant-item-additional">
                 <h3 class="assistant-title-about title title--small">Examples (You Say → It Does)</h3>
-                  <div class="assistant-above-wrapper">
+                <div class="assistant-above-wrapper">
                   <p class="assistant-above">“List unpaid invoices over €500” → Filtered results</p>
                   <p class="assistant-above">“Create a purchase order for 100 units of Item X” → Document created</p>
                   <p class="assistant-above">“Show monthly sales chart” → Dashboard generated</p>
@@ -419,16 +475,7 @@
             <p class="application-information">We'll map your business processes and propose a step-by-step roadmap,
               no
               obligation.</p>
-            <button class="application-button button button--footer" id="consult-btn">Book a slot
-              <script>
-                document.getElementById('consult-btn').onclick = () => {
-                  window.open(
-                    'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true',
-                    '_blank'
-                  );
-                };
-              </script>
-            </button>
+            <button class="application-button button button--footer popup-button">Book a slot</button>
           </div>
         </div>
         <div class="contacts-wrapper">
@@ -483,6 +530,15 @@
         </div>
       </div>
     </footer>
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-content">
+        <button class="popup-close" id="popup-close">Закрыть</button>
+        <iframe class="popup-iframe"
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true"
+          title="Календарь для записи">
+        </iframe>
+      </div>
+    </div>
     <script src="js/main.js"></script>
   </div>
 </body>

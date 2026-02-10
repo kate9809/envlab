@@ -65,6 +65,12 @@
   flex-direction: column;
 }
 
+.application-button {
+  @media (max-width: 767px) {
+    margin-top: 15px;
+  }
+}
+
 .title-pink {
   color: #ff4c7c;
 }

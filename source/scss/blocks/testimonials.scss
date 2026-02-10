@@ -61,7 +61,7 @@
     padding-right: 0;
     display: flex;
     gap: 16px;
-    overflow-x: auto;
+    overflow-x: hidden;
     position: relative;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;

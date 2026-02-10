@@ -259,6 +259,131 @@ overlay.addEventListener('click', function (e) {
   }
 });
 
+//comparision table
+
+document.addEventListener('DOMContentLoaded', function () {
+  const table = document.querySelector('.comparison-mobile-table');
+  const prevBtn = document.querySelector('.comparison-button.prev');
+  const nextBtn = document.querySelector('.comparison-button.next');
+
+  const scrollStep = 176; // px
+  let isScrolling = false;
+
+  // Функция обновления состояния кнопок
+  function updateButtons() {
+    const maxScroll = table.scrollWidth - table.clientWidth;
+    prevBtn.disabled = table.scrollLeft <= 0;
+    nextBtn.disabled = table.scrollLeft >= maxScroll;
+  }
+
+  // Прокрутка влево
+  prevBtn.addEventListener('click', function () {
+    if (isScrolling) return;
+    isScrolling = true;
+    table.scrollBy({
+      left: -scrollStep,
+      behavior: 'smooth'
+    });
+    setTimeout(() => { isScrolling = false; }, 500);
+  });
+
+  // Прокрутка вправо
+  nextBtn.addEventListener('click', function () {
+    if (isScrolling) return;
+    isScrolling = true;
+    table.scrollBy({
+      left: scrollStep,
+      behavior: 'smooth'
+    });
+    setTimeout(() => { isScrolling = false; }, 500);
+  });
+
+  // Обновление кнопок при прокрутке
+  table.addEventListener('scroll', updateButtons);
+
+  // Инициализация состояния кнопок
+  updateButtons();
+
+  // Обработка свайпов (мобильные устройства)
+  let startX = 0;
+
+  table.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+  });
+
+  table.addEventListener('touchmove', function (e) {
+    const deltaX = startX - e.touches[0].clientX;
+    if (Math.abs(deltaX) > 10) { // Минимум движения
+      table.scrollLeft += deltaX;
+      startX = e.touches[0].clientX; // Обновляем точку
+    }
+  });
+
+  // Предотвращаем стандартное поведение при свайпе
+  table.addEventListener('touchcancel', function () {
+    startX = 0;
+  });
+});
+
+const table = document.querySelector('.comparison-mobile-table');
+const columns = document.querySelectorAll('.table-mobile-column');
+const prevBtn = document.querySelector('.comparison-button.prev');
+const nextBtn = document.querySelector('.comparison-button.next');
+
+// Функция: находит следующую частично видимую колонку
+function getNextVisibleColumn() {
+  const scrollLeft = table.scrollLeft;
+  const containerWidth = table.clientWidth;
+
+  for (let col of columns) {
+    const rect = col.getBoundingClientRect();
+    const colLeft = rect.left - table.getBoundingClientRect().left;
+    const colRight = colLeft + col.offsetWidth;
+
+
+    // Колонка частично видна справа от видимой области
+    if (colLeft < containerWidth && colRight > containerWidth) {
+      return col;
+    }
+  }
+  return null;
+}
+
+// Функция: обновляет состояние «следующей» колонки
+function updateNextColumnState() {
+  // Снимаем класс со всех колонок
+  columns.forEach(col => col.classList.remove('next-in-line'));
+
+
+  // Находим следующую частично видимую колонку
+  const nextCol = getNextVisibleColumn();
+  if (nextCol) {
+    nextCol.classList.add('next-in-line');
+  }
+}
+
+// Вызываем при прокрутке
+table.addEventListener('scroll', updateNextColumnState);
+
+
+// Вызываем после анимации прокрутки (в обработчиках кнопок)
+function afterScroll() {
+  setTimeout(updateNextColumnState, 500);
+}
+
+// Добавляем в обработчики кнопок «Prev»/«Next»
+prevBtn.addEventListener('click', () => {
+  // ... ваш код прокрутки ...
+  afterScroll();
+});
+
+nextBtn.addEventListener('click', () => {
+  // ... ваш код прокрутки ...
+  afterScroll();
+});
+
+// Инициализация при загрузке
+updateNextColumnState();
 
 
 
