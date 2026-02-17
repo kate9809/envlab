@@ -1,0 +1,91 @@
+.main-contacts {
+  min-width: 390px;
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    max-width: 390px;
+  }
+}
+
+.main-contacts-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 145px 60px 86px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (max-width: 767px) {
+    min-width: 390px;
+    max-width: 390px;
+    padding: 72px 16px 56px;
+    gap: 24px;
+  }
+}
+
+.main-contacts-wrapper::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 428px;
+  height: 535px;
+  background-image: url("../images/pictures/photo@2x.jpg");
+  background-size: cover;
+  background-position: center;
+  bottom: 86px;
+  right: 60px;
+
+  @media (max-width: 767px) {
+    width: 228px;
+    height: 288px;
+    right: 16px;
+    bottom: 172px;
+  }
+}
+
+.contacts-title {
+  max-width: 624px;
+}
+
+.contacts-information {
+  max-width: 557px;
+  margin: 0;
+  font-size: 32px;
+  line-height: 42px;
+  padding-right: 40px;
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    line-height: 28px;
+    padding-right: 0;
+  }
+}
+
+.main-contacts-list {
+  margin-block: 0;
+  padding-inline: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 166px;
+
+  @media (max-width: 767px) {
+    margin-top: 324px;
+    gap: 4px;
+  }
+}
+
+.main-contacts-name {
+  margin: 0 0 10px 0;
+
+  @media (max-width: 767px) {
+    margin: 0 0 4px 0;
+  }
+}
+
+

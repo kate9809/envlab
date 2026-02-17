@@ -263,6 +263,7 @@ overlay.addEventListener('click', function (e) {
 
 document.addEventListener('DOMContentLoaded', function () {
   const table = document.querySelector('.comparison-mobile-table');
+  const columns = document.querySelectorAll('.table-mobile-column');
   const prevBtn = document.querySelector('.comparison-button.prev');
   const nextBtn = document.querySelector('.comparison-button.next');
 
@@ -323,67 +324,118 @@ document.addEventListener('DOMContentLoaded', function () {
   table.addEventListener('touchcancel', function () {
     startX = 0;
   });
-});
 
-const table = document.querySelector('.comparison-mobile-table');
-const columns = document.querySelectorAll('.table-mobile-column');
-const prevBtn = document.querySelector('.comparison-button.prev');
-const nextBtn = document.querySelector('.comparison-button.next');
+  // Функция: находит следующую частично видимую колонку
+  function getNextVisibleColumn() {
+    const scrollLeft = table.scrollLeft;
+    const containerWidth = table.clientWidth;
 
-// Функция: находит следующую частично видимую колонку
-function getNextVisibleColumn() {
-  const scrollLeft = table.scrollLeft;
-  const containerWidth = table.clientWidth;
-
-  for (let col of columns) {
-    const rect = col.getBoundingClientRect();
-    const colLeft = rect.left - table.getBoundingClientRect().left;
-    const colRight = colLeft + col.offsetWidth;
+    for (let col of columns) {
+      const rect = col.getBoundingClientRect();
+      const colLeft = rect.left - table.getBoundingClientRect().left;
+      const colRight = colLeft + col.offsetWidth;
 
 
-    // Колонка частично видна справа от видимой области
-    if (colLeft < containerWidth && colRight > containerWidth) {
-      return col;
+      // Колонка частично видна справа от видимой области
+      if (colLeft < containerWidth && colRight > containerWidth) {
+        return col;
+      }
+    }
+    return null;
+  }
+
+  // Функция: обновляет состояние «следующей» колонки
+  function updateNextColumnState() {
+    // Снимаем класс со всех колонок
+    columns.forEach(col => col.classList.remove('next-in-line'));
+
+
+    // Находим следующую частично видимую колонку
+    const nextCol = getNextVisibleColumn();
+    if (nextCol) {
+      nextCol.classList.add('next-in-line');
     }
   }
-  return null;
-}
 
-// Функция: обновляет состояние «следующей» колонки
-function updateNextColumnState() {
-  // Снимаем класс со всех колонок
-  columns.forEach(col => col.classList.remove('next-in-line'));
+  // Вызываем при прокрутке
+  table.addEventListener('scroll', updateNextColumnState);
 
 
-  // Находим следующую частично видимую колонку
-  const nextCol = getNextVisibleColumn();
-  if (nextCol) {
-    nextCol.classList.add('next-in-line');
+  // Вызываем после анимации прокрутки (в обработчиках кнопок)
+  function afterScroll() {
+    setTimeout(updateNextColumnState, 500);
   }
-}
 
-// Вызываем при прокрутке
-table.addEventListener('scroll', updateNextColumnState);
+  // Добавляем в обработчики кнопок «Prev»/«Next»
+  prevBtn.addEventListener('click', () => {
+    // ... ваш код прокрутки ...
+    afterScroll();
+  });
 
+  nextBtn.addEventListener('click', () => {
+    // ... ваш код прокрутки ...
+    afterScroll();
+  });
 
-// Вызываем после анимации прокрутки (в обработчиках кнопок)
-function afterScroll() {
-  setTimeout(updateNextColumnState, 500);
-}
-
-// Добавляем в обработчики кнопок «Prev»/«Next»
-prevBtn.addEventListener('click', () => {
-  // ... ваш код прокрутки ...
-  afterScroll();
+  // Инициализация при загрузке
+  updateNextColumnState();
 });
 
-nextBtn.addEventListener('click', () => {
-  // ... ваш код прокрутки ...
-  afterScroll();
-});
+function initServicesNavigation() {
+  // Получаем все ссылки внутри .services-name-list
+  const servicesLinks = document.querySelectorAll('.services-name-list .services-name');
 
-// Инициализация при загрузке
-updateNextColumnState();
+  // Проверяем, есть ли элементы на странице
+  if (!servicesLinks.length) {
+    console.warn('Элементы .services-name не найдены в DOM');
+    return;
+  }
 
+  // Обработчик клика для каждой ссылки
+  function handleLinkClick(event) {
+    // Убираем класс active-name у всех ссылок
+    servicesLinks.forEach(item => {
+      item.classList.remove('active-name');
+    });
 
+    // Добавляем класс active-name текущей ссылке
+    this.classList.add('active-name');
+  }
+
+  // Проходим по каждой ссылке и добавляем обработчик клика
+  servicesLinks.forEach(link => {
+    link.addEventListener('click', handleLinkClick);
+  });
+}
+
+// Вызов функции после загрузки DOM
+document.addEventListener('DOMContentLoaded', initServicesNavigation);
+
+//cases
+
+function initCasesNavigation() {
+
+  const casesLinks = document.querySelectorAll('.cases-name-list .cases-name');
+
+  if (!casesLinks.length) {
+    console.warn('Элементы .cases-name не найдены в DOM');
+    return;
+  }
+
+  function handleLinkClick(event) {
+      casesLinks.forEach(item => {
+      item.classList.remove('active-name');
+    });
+
+    this.classList.add('active-name');
+  }
+
+  // Проходим по каждой ссылке и добавляем обработчик клика
+  casesLinks.forEach(link => {
+    link.addEventListener('click', handleLinkClick);
+  });
+}
+
+// Вызов функции после загрузки DOM
+document.addEventListener('DOMContentLoaded', initCasesNavigation);
 

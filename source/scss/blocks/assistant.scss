@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: row;
   padding: 70px 0 111px 60px;
+  max-width: 1440px;
   margin: 0 auto;
-  width: 1440px;
 
   @media (max-width: 767px) {
     flex-direction: column;

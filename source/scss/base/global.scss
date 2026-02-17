@@ -14,3 +14,8 @@ img {
 ul { 
   list-style-type: none;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 170px;
+}
