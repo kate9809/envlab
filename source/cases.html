@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="page" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>envlab.</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="icon" href="favicon-light.ico" type="image/x-icon">
+  <link rel="icon" href="favicon-light.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="favicon-dark.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon_32x32_light.png"
+    media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon_32x32_dark.png"
+    media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicons/favicon_48x48_light.png"
+    media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicons/favicon_48x48_dark.png"
+    media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="192x192" href="favicons/favicon_192x192_light.png"
+    media="(prefers-color-scheme: light)">
+  <link rel="apple-touch-icon" sizes="192x192" href="favicons/favicon_192x192_dark.png"
+    media="(prefers-color-scheme: dark)">
+
+</head>
+
+<body class="page-body">
+  <div class="page-wrapper">
+    <header class="main-header header-fixed">
+      <div class="header-wrapper">
+        <a class="main-header-logo" href="https://envlab.tech/" aria-label="envlab. - main page">
+          <svg class="header-logo-icon" aria-hidden="true" focusable="false" width="92" height="28"
+            viewBox="0 0 664 149" fill="currentColor">
+            <path
+              d="M645.244 148.6C640.044 148.6 635.71 146.867 632.244 143.4C628.91 139.933 627.244 135.8 627.244 131C627.244 126.333 628.91 122.267 632.244 118.8C635.71 115.333 640.044 113.6 645.244 113.6C650.444 113.6 654.71 115.333 658.044 118.8C661.377 122.267 663.044 126.333 663.044 131C663.044 135.8 661.377 139.933 658.044 143.4C654.71 146.867 650.444 148.6 645.244 148.6Z"
+              fill="#ff4c7c" />
+            <path
+              d="M569.308 148.6C559.974 148.6 552.708 146.8 547.508 143.2C542.441 139.6 538.508 134.867 535.708 129V146H509.508V0H536.508V58C539.308 52.5333 543.241 48.1333 548.308 44.8C553.374 41.4667 560.374 39.8 569.308 39.8C576.508 39.8 583.174 41.2667 589.308 44.2C595.574 47 601.041 50.9333 605.708 56C610.374 60.9333 614.041 66.7333 616.708 73.4C619.374 79.9333 620.708 86.9333 620.708 94.4C620.708 104.4 618.374 113.533 613.708 121.8C609.174 129.933 603.041 136.467 595.308 141.4C587.574 146.2 578.908 148.6 569.308 148.6ZM564.908 124.2C570.641 124.2 575.641 122.8 579.908 120C584.308 117.2 587.708 113.533 590.108 109C592.508 104.333 593.708 99.4 593.708 94.2C593.708 88.7333 592.508 83.7333 590.108 79.2C587.708 74.6667 584.308 71.0667 579.908 68.4C575.641 65.6 570.641 64.2 564.908 64.2C559.041 64.2 553.908 65.6 549.508 68.4C545.108 71.2 541.708 74.8667 539.308 79.4C536.908 83.9333 535.708 88.9333 535.708 94.4C535.708 99.7333 536.908 104.667 539.308 109.2C541.708 113.733 545.108 117.4 549.508 120.2C553.908 122.867 559.041 124.2 564.908 124.2Z"
+              fill="black" />
+            <path
+              d="M431.666 148.6C422.199 148.6 413.532 146.2 405.666 141.4C397.932 136.467 391.732 129.933 387.066 121.8C382.532 113.533 380.266 104.4 380.266 94.4C380.266 86.9333 381.599 79.9333 384.266 73.4C386.932 66.7333 390.599 60.9333 395.266 56C399.932 50.9333 405.332 47 411.466 44.2C417.732 41.2667 424.466 39.8 431.666 39.8C440.732 39.8 447.799 41.5333 452.866 45C457.932 48.3333 461.866 52.8 464.666 58.4V42H491.466V146H465.266V129C462.466 134.867 458.466 139.6 453.266 143.2C448.199 146.8 440.999 148.6 431.666 148.6ZM436.066 124.2C442.066 124.2 447.199 122.867 451.466 120.2C455.866 117.4 459.266 113.733 461.666 109.2C464.066 104.667 465.266 99.7333 465.266 94.4C465.266 88.9333 464.066 83.9333 461.666 79.4C459.266 74.8667 455.866 71.2 451.466 68.4C447.199 65.6 442.066 64.2 436.066 64.2C430.332 64.2 425.266 65.6 420.866 68.4C416.599 71.0667 413.266 74.6667 410.866 79.2C408.466 83.7333 407.266 88.7333 407.266 94.2C407.266 99.4 408.466 104.333 410.866 109C413.266 113.533 416.599 117.2 420.866 120C425.266 122.8 430.332 124.2 436.066 124.2Z"
+              fill="black" />
+            <path d="M339.297 146V0H366.297V146H339.297Z" fill="black" />
+            <path
+              d="M261.884 146L218.484 42H250.484L271.284 101.4C273.151 106.733 274.618 112.267 275.684 118C276.751 112.267 278.218 106.733 280.084 101.4L300.884 42H332.284L289.084 146H261.884Z"
+              fill="black" />
+            <path
+              d="M120.453 146V42H147.053V57.2C152.52 45.4666 163.12 39.6 178.853 39.6C186.32 39.6 193.053 41.3333 199.053 44.8C205.053 48.2666 209.786 53.2 213.253 59.6C216.72 66 218.453 73.6 218.453 82.4V146H191.453V89C191.453 79.9333 189.386 73.4 185.253 69.4C181.12 65.2666 175.72 63.2 169.053 63.2C163.32 63.2 158.253 65.2666 153.853 69.4C149.586 73.4 147.453 79.9333 147.453 89V146H120.453Z"
+              fill="black" />
+            <path
+              d="M53.8 148.6C43.1333 148.6 33.7333 146.133 25.6 141.2C17.4667 136.267 11.1333 129.733 6.6 121.6C2.2 113.333 0 104.2 0 94.2C0 84.2 2.33333 75.0666 7 66.8C11.6667 58.4 18 51.7333 26 46.8C34.1333 41.8666 43.4 39.4 53.8 39.4C64.2 39.4 73.3333 41.8666 81.2 46.8C89.2 51.7333 95.4 58.4 99.8 66.8C104.333 75.0666 106.6 84.2 106.6 94.2C106.6 95.6666 106.533 97.2 106.4 98.8C106.267 100.4 106.067 102.067 105.8 103.8H28C29.4667 109.933 32.4 114.933 36.8 118.8C41.3333 122.667 47 124.6 53.8 124.6C59.6667 124.6 64.7333 123.267 69 120.6C73.4 117.933 76.8 114.6 79.2 110.6L100.2 126.4C96.0667 132.933 89.8667 138.267 81.6 142.4C73.3333 146.533 64.0667 148.6 53.8 148.6ZM53.4 62.6C47 62.6 41.5333 64.5333 37 68.4C32.4667 72.2666 29.4667 77.3333 28 83.6H79.4C77.9333 77.8666 74.8667 72.9333 70.2 68.8C65.6667 64.6666 60.0667 62.6 53.4 62.6Z"
+              fill="black" />
+          </svg>
+        </a>
+        <nav class="header-navigation header-navigation--closed">
+          <button class="header-navigation-toggle" type="button">
+            <span class="visually-hidden">Open</span>
+          </button>
+          <div class="header-navigation-wrapper">
+            <ul class="header-navigation-list">
+              <li class="header-navigation-item">
+                <a class="header-navigation-link link link--navigation" href="https://envlab.tech/frappe">frappe</a>
+              </li>
+              <li class="header-navigation-item">
+                <a class="header-navigation-link link link--navigation" href="https://envlab.tech/services">services</a>
+              </li>
+              <li class="header-navigation-item">
+                <a class="header-navigation-link link link--navigation link--active"
+                  href="https://envlab.tech/casestudies">case studies</a>
+              </li>
+              <li class="header-navigation-item">
+                <a class="header-navigation-link link link--navigation" href="https://envlab.tech/contactus">contacts</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a class="header-modal link popup-button">Get a free consultation</a>
+      </div>
+    </header>
+
+    <main class="main-cases">
+      <div class="main-cases-wrapper">
+        <h1 class="cases-title title title--uppercase">Case Studies</h1>
+        <div class="cases-sections-wrapper">
+
+          <section class="cases-names">
+            <h2 class="visually-hidden">Case studies names</h2>
+            <nav class="cases-name-list">
+              <a class="cases-name active-name" href="#section-infrastructure">IT infrastructure for Medical Software
+                Development Company</a>
+              <a class="cases-name" href="#section-portal">Client Web Portal for the Chain of Medical
+                Clinics and Laboratories</a>
+              <a class="cases-name" href="#section-ireland">24/7 monitoring and incident response for
+                Emerald Guitars (Ireland)</a>
+              <a class="cases-name name-big" href="#section-hongkong">24/7 monitoring and incident response for
+                Language Apps Limited (Hong Kong)</a>
+              <a class="cases-name" href="#section-integration">ERPNext Integration for Software Development
+                Company</a>
+              <a class="cases-name" href="#section-anesthesia">Reliable website and admin portal for South
+                Coast Anesthesia (USA)</a>
+            </nav>
+          </section>
+          <div class="cases-sections-container">
+
+            <section class="cases-section" id="section-infrastructure">
+              <div class="cases-section-wrapper cases-section-border">
+                <h2 class="cases-section-title title title--average title--uppercase">IT infrastructure for Medical
+                  Software Development Company</h2>
+                <p class="cases-section-description">Company Size: 30–50 employees / Working together since 2016</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Infrastructure chaos due to rapid, unstructured growth</p>
+                      <p class="cases-section-above">Need for distributed network connectivity with clients</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Fast architecture design and implementation</p>
+                      <p class="cases-section-above">Uninterrupted operation of services used by external clients</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Designed and deployed a distributed network with 100+ connection
+                        points</p>
+                      <p class="cases-section-above">Implemented detailed monitoring for corporate services, tunnels,
+                        and connection points</p>
+                      <p class="cases-section-above">Migrated code repository from SVN to Gitlab</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Stable corporate IT infrastructure</p>
+                      <p class="cases-section-above">30% optimization in computing resource usage</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cases-section" id="section-portal">
+              <div class="cases-section-wrapper cases-section-border wrapper-padding">
+                <h2 class="cases-section-title cases-section-title-padding title title--average title--uppercase">Client Web Portal for the Chain of
+                  Medical Clinics and Laboratories</h2>
+                <p class="cases-section-description">Company Size: 80–100 employees / Working together since 2013</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Client web portal unable to handle load</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Ensure portal stability</p>
+                      <p class="cases-section-above">Improve web application performance</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Fine-tuned server configuration</p>
+                      <p class="cases-section-above">Set up detailed monitoring of servers and the web application</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Stable, high-performing client web portal able to handle current
+                        load</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cases-section" id="section-ireland">
+              <div class="cases-section-wrapper cases-section-border wrapper-padding--small wrapper-padding--big">
+                <h2 class="cases-section-title title title--average title--uppercase">24/7 monitoring and incident
+                  response for Emerald Guitars <span class="title-gray">(Ireland)</span></h2>
+                <p class="cases-section-description">Company Size: ..–.. employees / Working together since 2022</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Website unable to handle load</p>
+                      <p class="cases-section-above">Required migration to a new Data Center</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Ensure stable website operation</p>
+                      <p class="cases-section-above">Improve web application performance</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Fine-tuned server configuration</p>
+                      <p class="cases-section-above">Performed seamless migration to a new Data Center without downtime
+                      </p>
+                      <p class="cases-section-above">Set up detailed server and application monitoring</p>
+                      <p class="cases-section-above">Provided 24/7 support and incident response</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above cases-section-above-padding">Web server capable of handling necessary loads</p>
+                      <p class="cases-section-above">24/7 monitoring and incident response</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cases-section" id="section-hongkong">
+              <div class="cases-section-wrapper cases-section-border wrapper-padding">
+                <h2 class="cases-section-title title title--average title--uppercase">24/7 monitoring and incident
+                  response for Language Apps Limited <span class="title-gray">(Hong Kong)</span></h2>
+                <p class="cases-section-description">Company Size: ..–.. employees / Working together since 2024</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Chaotic infrastructure and lack of systematic management</p>
+                      <p class="cases-section-above">Lack of monitoring tools and getting incident alerts from customers
+                      </p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above cases-section-above-padding">Stable operation of servers and web applications</p>
+                      <p class="cases-section-above">24/7 support</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Conducted an audit and systematized all applications and services
+                      </p>
+                      <p class="cases-section-above">Upgraded servers</p>
+                      <p class="cases-section-above">Set up comprehensive server and application monitoring</p>
+                      <p class="cases-section-above">Established CI/CD pipelines for code delivery</p>
+                      <p class="cases-section-above">24/7 support and incident response</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Optimally configured web servers</p>
+                      <p class="cases-section-above">24/7 monitoring and incident response</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cases-section" id="section-integration">
+              <div class="cases-section-wrapper cases-section-border wrapper-padding--small">
+                <h2 class="cases-section-title title title--average title--uppercase">ERPNext Integration for Software
+                  Development
+                  Company</h2>
+                <p class="cases-section-description">Company Size: 80 employees / Working together since 2022</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Need for a unified business and process management system</p>
+                      <p class="cases-section-above">Migration of data from fragmented, disconnected systems</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Seamless transition with zero downtime for teams</p>
+                      <p class="cases-section-above">Low-cost, no per-user license fees</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Audited business processes, IT systems, and datasets</p>
+                      <p class="cases-section-above">Developed a migration roadmap for processes and data</p>
+                      <p class="cases-section-above">Created custom document types, print forms, and reports, set up
+                        document approval workflows</p>
+                      <p class="cases-section-above">Migrated data in stages</p>
+                      <p class="cases-section-above">Trained employees and produced documentation</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Unified ERP system for all key business processes</p>
+                      <p class="cases-section-above cases-section-above-padding">Reduced errors and task loss among employees</p>
+                      <p class="cases-section-above">BI analytics for process monitoring and identifying bottlenecks</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cases-section" id="section-anesthesia">
+              <div class="cases-section-wrapper wrapper-padding wrapper-padding--big">
+                <h2 class="cases-section-title title title--average title--uppercase">Reliable website and admin portal
+                  for South Coast Anesthesia <span class="title-gray">(USA)</span></h2>
+                <p class="cases-section-description">Company Size: ..–.. employees / Working together since 2017</p>
+                <ul class="cases-section-list">
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Client’s Initial Challenges</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Slow portal performance</p>
+                      <p class="cases-section-above">Frequent site downtime</p>
+                      <p class="cases-section-above">Major need for functional overhaul</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Critical Client Priorities</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above cases-section-above-padding">Stable operation of the website and admin portal</p>
+                      <p class="cases-section-above">Substantial portal upgrades to match new business processes</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">What did we do</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Audited and optimized web application performance</p>
+                      <p class="cases-section-above">Rewrote critical parts of the application</p>
+                      <p class="cases-section-above">Migrated project to servers suitable for its workload</p>
+                      <p class="cases-section-above">Analyzed business processes and developed necessary portal modules
+                      </p>
+                      <p class="cases-section-above">Set up backup systems and incident monitoring</p>
+                    </div>
+                  </li>
+                  <li class="cases-section-item">
+                    <h3 class="cases-section-title-above title title--small">Outcomes</h3>
+                    <div class="cases-section-above-wrapper">
+                      <p class="cases-section-above">Reliable website and admin portal</p>
+                      <p class="cases-section-above">Reduced labor costs through optimization and automation of business
+                        processes</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      <div class="footer-wrapper">
+        <div class="footer-application">
+          <h2 class="application-title title title--uppercase"><span class="title-pink">Get a
+              free</span><span>consultation</span></h2>
+          <div class="application-wrapper">
+            <p class="application-information">We'll map your business processes and propose a step-by-step roadmap,
+              no
+              obligation.</p>
+            <button class="application-button button button--footer popup-button">Book a slot</button>
+          </div>
+        </div>
+        <div class="contacts-wrapper">
+          <div class="footer-logo-wrapper">
+            <a class="footer-logo" href="https://envlab.tech/" aria-label="envlab. - main page">
+              <svg class="footer-logo-icon" aria-hidden="true" focusable="false" width="92" height="28"
+                viewBox="0 0 664 149" fill="currentColor">
+                <path
+                  d="M645.244 148.6C640.044 148.6 635.71 146.867 632.244 143.4C628.91 139.933 627.244 135.8 627.244 131C627.244 126.333 628.91 122.267 632.244 118.8C635.71 115.333 640.044 113.6 645.244 113.6C650.444 113.6 654.71 115.333 658.044 118.8C661.377 122.267 663.044 126.333 663.044 131C663.044 135.8 661.377 139.933 658.044 143.4C654.71 146.867 650.444 148.6 645.244 148.6Z"
+                  fill="#ff4c7c" />
+                <path
+                  d="M569.308 148.6C559.974 148.6 552.708 146.8 547.508 143.2C542.441 139.6 538.508 134.867 535.708 129V146H509.508V0H536.508V58C539.308 52.5333 543.241 48.1333 548.308 44.8C553.374 41.4667 560.374 39.8 569.308 39.8C576.508 39.8 583.174 41.2667 589.308 44.2C595.574 47 601.041 50.9333 605.708 56C610.374 60.9333 614.041 66.7333 616.708 73.4C619.374 79.9333 620.708 86.9333 620.708 94.4C620.708 104.4 618.374 113.533 613.708 121.8C609.174 129.933 603.041 136.467 595.308 141.4C587.574 146.2 578.908 148.6 569.308 148.6ZM564.908 124.2C570.641 124.2 575.641 122.8 579.908 120C584.308 117.2 587.708 113.533 590.108 109C592.508 104.333 593.708 99.4 593.708 94.2C593.708 88.7333 592.508 83.7333 590.108 79.2C587.708 74.6667 584.308 71.0667 579.908 68.4C575.641 65.6 570.641 64.2 564.908 64.2C559.041 64.2 553.908 65.6 549.508 68.4C545.108 71.2 541.708 74.8667 539.308 79.4C536.908 83.9333 535.708 88.9333 535.708 94.4C535.708 99.7333 536.908 104.667 539.308 109.2C541.708 113.733 545.108 117.4 549.508 120.2C553.908 122.867 559.041 124.2 564.908 124.2Z"
+                  fill="#fcfcfc" />
+                <path
+                  d="M431.666 148.6C422.199 148.6 413.532 146.2 405.666 141.4C397.932 136.467 391.732 129.933 387.066 121.8C382.532 113.533 380.266 104.4 380.266 94.4C380.266 86.9333 381.599 79.9333 384.266 73.4C386.932 66.7333 390.599 60.9333 395.266 56C399.932 50.9333 405.332 47 411.466 44.2C417.732 41.2667 424.466 39.8 431.666 39.8C440.732 39.8 447.799 41.5333 452.866 45C457.932 48.3333 461.866 52.8 464.666 58.4V42H491.466V146H465.266V129C462.466 134.867 458.466 139.6 453.266 143.2C448.199 146.8 440.999 148.6 431.666 148.6ZM436.066 124.2C442.066 124.2 447.199 122.867 451.466 120.2C455.866 117.4 459.266 113.733 461.666 109.2C464.066 104.667 465.266 99.7333 465.266 94.4C465.266 88.9333 464.066 83.9333 461.666 79.4C459.266 74.8667 455.866 71.2 451.466 68.4C447.199 65.6 442.066 64.2 436.066 64.2C430.332 64.2 425.266 65.6 420.866 68.4C416.599 71.0667 413.266 74.6667 410.866 79.2C408.466 83.7333 407.266 88.7333 407.266 94.2C407.266 99.4 408.466 104.333 410.866 109C413.266 113.533 416.599 117.2 420.866 120C425.266 122.8 430.332 124.2 436.066 124.2Z"
+                  fill="#fcfcfc" />
+                <path d="M339.297 146V0H366.297V146H339.297Z" fill="#fcfcfc" />
+                <path
+                  d="M261.884 146L218.484 42H250.484L271.284 101.4C273.151 106.733 274.618 112.267 275.684 118C276.751 112.267 278.218 106.733 280.084 101.4L300.884 42H332.284L289.084 146H261.884Z"
+                  fill="#fcfcfc" />
+                <path
+                  d="M120.453 146V42H147.053V57.2C152.52 45.4666 163.12 39.6 178.853 39.6C186.32 39.6 193.053 41.3333 199.053 44.8C205.053 48.2666 209.786 53.2 213.253 59.6C216.72 66 218.453 73.6 218.453 82.4V146H191.453V89C191.453 79.9333 189.386 73.4 185.253 69.4C181.12 65.2666 175.72 63.2 169.053 63.2C163.32 63.2 158.253 65.2666 153.853 69.4C149.586 73.4 147.453 79.9333 147.453 89V146H120.453Z"
+                  fill="#fcfcfc" />
+                <path
+                  d="M53.8 148.6C43.1333 148.6 33.7333 146.133 25.6 141.2C17.4667 136.267 11.1333 129.733 6.6 121.6C2.2 113.333 0 104.2 0 94.2C0 84.2 2.33333 75.0666 7 66.8C11.6667 58.4 18 51.7333 26 46.8C34.1333 41.8666 43.4 39.4 53.8 39.4C64.2 39.4 73.3333 41.8666 81.2 46.8C89.2 51.7333 95.4 58.4 99.8 66.8C104.333 75.0666 106.6 84.2 106.6 94.2C106.6 95.6666 106.533 97.2 106.4 98.8C106.267 100.4 106.067 102.067 105.8 103.8H28C29.4667 109.933 32.4 114.933 36.8 118.8C41.3333 122.667 47 124.6 53.8 124.6C59.6667 124.6 64.7333 123.267 69 120.6C73.4 117.933 76.8 114.6 79.2 110.6L100.2 126.4C96.0667 132.933 89.8667 138.267 81.6 142.4C73.3333 146.533 64.0667 148.6 53.8 148.6ZM53.4 62.6C47 62.6 41.5333 64.5333 37 68.4C32.4667 72.2666 29.4667 77.3333 28 83.6H79.4C77.9333 77.8666 74.8667 72.9333 70.2 68.8C65.6667 64.6666 60.0667 62.6 53.4 62.6Z"
+                  fill="#fcfcfc" />
+              </svg>
+            </a>
+          </div>
+          <div class="footer-contacts">
+            <h2 class="visually-hidden">Contact us!</h2>
+            <ul class="footer-contacts-list">
+              <li class="footer-contacts-item">
+                <h3 class="visually-hidden">Phone</h3>
+                <a class="footer-contacts-phone link link--footer" href="tel:+351923314690">+351 923 314 690</a>
+              </li>
+              <li class="footer-contacts-item">
+                <h3 class="visually-hidden">Email</h3>
+                <a class="footer-contacts-email link link--footer" href="mailto:hello@envlab.tech">hello@envlab.tech</a>
+              </li>
+            </ul>
+            <a class="footer-social-link" href="https://www.linkedin.com/company/envlab-tech/">
+              <span class="visually-hidden">We in LinkedIn!</span>
+              <svg class="footer-icon" aria-hidden="true" focusable="false" width="21" height="21" viewBox="0 0 21 21"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.6667 0C19.2855 0 19.879 0.245833 20.3166 0.683417C20.7542 1.121 21 1.71449 21 2.33333V18.6667C21 19.2855 20.7542 19.879 20.3166 20.3166C19.879 20.7542 19.2855 21 18.6667 21H2.33333C1.71449 21 1.121 20.7542 0.683417 20.3166C0.245833 19.879 0 19.2855 0 18.6667V2.33333C0 1.71449 0.245833 1.121 0.683417 0.683417C1.121 0.245833 1.71449 0 2.33333 0H18.6667ZM18.0833 18.0833V11.9C18.0833 10.8913 17.6826 9.9239 16.9694 9.21064C16.2561 8.49737 15.2887 8.09667 14.28 8.09667C13.2883 8.09667 12.1333 8.70333 11.5733 9.61333V8.31833H8.31833V18.0833H11.5733V12.3317C11.5733 11.4333 12.2967 10.6983 13.195 10.6983C13.6282 10.6983 14.0436 10.8704 14.3499 11.1767C14.6562 11.483 14.8283 11.8985 14.8283 12.3317V18.0833H18.0833ZM4.52667 6.48667C5.04649 6.48667 5.54502 6.28017 5.9126 5.9126C6.28017 5.54502 6.48667 5.04649 6.48667 4.52667C6.48667 3.44167 5.61167 2.555 4.52667 2.555C4.00375 2.555 3.50225 2.76273 3.13249 3.13249C2.76273 3.50225 2.555 4.00375 2.555 4.52667C2.555 5.61167 3.44167 6.48667 4.52667 6.48667ZM6.14833 18.0833V8.31833H2.91667V18.0833H6.14833Z"
+                  fill="#FCFCFC" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-content">
+        <button class="popup-close" id="popup-close">Закрыть</button>
+        <iframe class="popup-iframe"
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2m5jj7FBO16dzUvsNtBMvZNeqmHY_vWu8GhTs1v9Xg7R2RtSTGJSW-fry50N1kB0qoUvZa6uBX?gv=true"
+          title="Календарь для записи">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
