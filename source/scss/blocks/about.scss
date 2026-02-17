@@ -6,12 +6,12 @@
 .about-wrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   padding: 84px 60px 132px;
   width: 1440px;
   margin: 0 auto;
 
   @media (max-width: 767px) {
+  flex-direction: column;
     max-width: 390px;
     padding: 72px 16px 88px;
   }
