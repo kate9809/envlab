@@ -1,3 +1,9 @@
+.page-casestudies {
+  @media (max-width: 767px) {
+    scroll-padding: 195px;
+  }  
+}
+
 .main-cases {
   min-width: 320px;
   width: 100%;
@@ -17,6 +23,10 @@
   }
 }
 
+.wrapper-scroll {
+  scroll-padding: 195px;
+}
+
 .cases-title {
   display: block;
   min-height: 302px;
@@ -28,6 +38,7 @@
   @media (max-width: 767px) {
     max-width: 390px;
     min-height: 144px;
+    max-height: 144px;
     padding: 48px 0;
     margin: 0 16px;
     margin-top: 72px;
@@ -50,13 +61,10 @@
 }
 
 .cases-names {
-  background-color: #f1f1f1;
-
   @media (max-width: 767px) {
     position: sticky;
-    top: 96px;
+    top: -50px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     border-bottom: 1px solid rgba(26, 26, 26, 0.3);
     margin: 0 16px;
   }
@@ -124,13 +132,12 @@
   @media (max-width: 767px) {
     min-width: 374px;
     gap: 72px;
-    padding: 72px 16px 0 16px;
+    padding: 0 16px 0 16px;
   }
 }
 
 .cases-sections-container::-webkit-scrollbar {
   display: none;
-  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 

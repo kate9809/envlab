@@ -1,3 +1,9 @@
+.page-services {
+  @media (max-width: 767px) {
+    scroll-padding: 150px;
+  }
+}
+
 .main-services {
   min-width: 320px;
   width: 100%;
@@ -48,9 +54,8 @@
 .services-names {
   @media (max-width: 767px) {
     position: sticky;
-    top: 96px;
+    top: -10px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     border-bottom: 1px solid rgba(26, 26, 26, 0.3);
     margin: 0 16px;
   }
@@ -115,7 +120,6 @@
 
 .services-sections-container::-webkit-scrollbar {
   display: none;
-  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 

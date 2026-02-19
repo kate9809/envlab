@@ -198,3 +198,49 @@
 .main-navigation--nojs .main-navigation-item {
   display: block;
 }
+
+.page-wrapper:has(.header-navigation--opened) {
+  @media (max-width: 767px) {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}  
+
+.page-wrapper:has(.header-navigation--opened) .main-fixed {
+  @media (max-width: 767px) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 72px;
+    left: 0;
+  }  
+}
+
+.page-wrapper:has(.header-navigation--opened) .cases-title {
+  @media (max-width: 767px) {
+    margin-top: 0;
+  }
+}
+
+.page-wrapper:has(.header-navigation--opened) .services-title {
+  @media (max-width: 767px) {
+    margin-top: 0;
+  }
+}
+
+.page-wrapper:has(.header-navigation--opened) .main-footer {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+
+.main-navigation-item a {
+  @media (max-width: 767px) {
+  
+  }
+}
