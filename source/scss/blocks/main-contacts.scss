@@ -13,18 +13,22 @@
 .main-contacts-wrapper {
   width: 100%;
   max-width: 1440px;
-  padding: 145px 60px 86px;
+  padding: clamp(20px, 1vh, 145px) 60px clamp(30px, 6vh, 86px);
   display: flex;
   flex-direction: column;
   gap: 40px;
   margin: 0 auto;
   position: relative;
-
+  max-height: calc(100vh - 96px);
+  overflow-y: hidden;
+  
   @media (max-width: 767px) {
     min-width: 390px;
     max-width: 390px;
     padding: 72px 16px 56px;
     gap: 24px;
+    overflow-y: auto;
+    max-height: calc(100vh - 72px);
   }
 }
 
@@ -37,28 +41,31 @@
   background-image: url("../images/pictures/photo@2x.jpg");
   background-size: cover;
   background-position: center;
-  bottom: 86px;
+  bottom: 16px;
   right: 60px;
 
   @media (max-width: 767px) {
     width: 228px;
     height: 288px;
     right: 16px;
-    bottom: 172px;
+    bottom: -90px;
     background-image: url("../images/pictures/photo.jpg");
   }
 }
 
 .contacts-title {
   max-width: 624px;
+  font-size: clamp(48px, 8vw + 1rem, 88px);
+  line-height: clamp(56px, 9.5vw + 1.2rem, 101px);
+
 }
 
 .contacts-information {
   max-width: 557px;
   margin: 0;
   font-size: 32px;
-  line-height: 42px;
-  padding-right: 40px;
+  font-size: clamp(16px, 2.5vw, 32px);
+  line-height: clamp(24px, 3.5vw, 42px);
 
   @media (max-width: 767px) {
     font-size: 20px;
@@ -73,7 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 166px;
+  margin-top: clamp(40px, 12vh, 166px);
 
   @media (max-width: 767px) {
     margin-top: 324px;

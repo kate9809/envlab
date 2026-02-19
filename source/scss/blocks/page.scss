@@ -3,7 +3,6 @@
   font-size: 20px;
   line-height: 28px;
   font-weight: 400;
-  min-height: 100%;
   background-color: #fcfcfc;
   color: #1a1a1a;
   margin: 0 auto;
@@ -14,16 +13,24 @@
   }
 }
 
+.page-contacts {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .page-body {
   min-width: 390px;
-  min-height: 100vh;
   background-color: #fcfcfc;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  box-sizing: border-box;
   min-height: 100vh;
 }
