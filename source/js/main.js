@@ -462,25 +462,29 @@ function initServicesNavigation() {
     // Добавляем active текущей ссылке
     this.classList.add('active-name');
 
-    // Плавно переходим к секции
     const targetId = this.getAttribute('data-target');
     const targetSection = document.getElementById(targetId);
 
     if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
+      if (isMobile()) {
+        // На мобиле: только прокрутка к секции (без прокрутки ссылки)
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start' // строго вверх
+        });
+      } else {
+        // На десктопе: прокрутка к секции с корректным выравниванием
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'center' // центрируем горизонтально
+        });
+      }
     }
 
-    // На мобиле — сразу прокручиваем namesList к активной ссылке
+    // На мобиле: отдельная прокрутка namesList (без анимации!)
     if (isMobile()) {
-      this.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'start'
-      });
+      this.parentNode.scrollLeft = this.offsetLeft; // мгновенная прокрутка
     }
   }
 
@@ -582,25 +586,29 @@ function initCasesNavigation() {
     // Добавляем active текущей ссылке
     this.classList.add('active-name');
 
-    // Плавно переходим к секции
     const targetId = this.getAttribute('data-target');
     const targetSection = document.getElementById(targetId);
 
     if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
+      if (isMobile()) {
+        // На мобиле: только прокрутка к секции (без прокрутки ссылки)
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start' // строго вверх
+        });
+      } else {
+        // На десктопе: прокрутка к секции с корректным выравниванием
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'center' // центрируем горизонтально
+        });
+      }
     }
 
-    // На мобиле — сразу прокручиваем namesList к активной ссылке
+    // На мобиле: отдельная прокрутка namesList (без анимации!)
     if (isMobile()) {
-      this.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'start'
-      });
+      this.parentNode.scrollLeft = this.offsetLeft; // мгновенная прокрутка
     }
   }
 
