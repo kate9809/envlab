@@ -131,7 +131,7 @@ navToggle.addEventListener('click', function () {
   if (navMain.classList.contains('header-navigation--closed')) {
     navMain.classList.remove('header-navigation--closed');
     navMain.classList.add('header-navigation--opened');
-  } else {
+   } else {
     navMain.classList.add('header-navigation--closed');
     navMain.classList.remove('header-navigation--opened');
   }
@@ -273,8 +273,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Функция обновления состояния кнопок
   function updateButtons() {
     const maxScroll = table.scrollWidth - table.clientWidth;
-    prevBtn.disabled = table.scrollLeft <= 0;
-    nextBtn.disabled = table.scrollLeft >= maxScroll;
+    const currentScroll = table.scrollLeft;
+
+    // Добавляем допуск в 1 пиксель для надёжности
+    prevBtn.disabled = currentScroll <= 1;
+    nextBtn.disabled = (currentScroll + 1) >= maxScroll; // +1 для компенсации погрешностей
   }
 
   // Прокрутка влево
@@ -381,6 +384,9 @@ document.addEventListener('DOMContentLoaded', function () {
   updateNextColumnState();
 });
 
+
+//services
+
 function initServicesNavigation() {
   // Получаем все ссылки внутри .services-name-list
   const servicesLinks = document.querySelectorAll('.services-name-list .services-name');
@@ -406,8 +412,8 @@ function initServicesNavigation() {
   servicesLinks.forEach(link => {
     link.addEventListener('click', handleLinkClick);
   });
+ 
 }
-
 // Вызов функции после загрузки DOM
 document.addEventListener('DOMContentLoaded', initServicesNavigation);
 
