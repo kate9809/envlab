@@ -41,7 +41,7 @@
   background-image: url("../images/pictures/photo@2x.jpg");
   background-size: cover;
   background-position: center;
-  bottom: 16px;
+  bottom: 30px;
   right: 60px;
 
   @media (max-width: 767px) {
@@ -80,7 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: clamp(40px, 12vh, 166px);
+  margin-top: clamp(40px, 10vh, 166px);
 
   @media (max-width: 767px) {
     margin-top: 324px;

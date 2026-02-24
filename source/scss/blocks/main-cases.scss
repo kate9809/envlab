@@ -70,6 +70,7 @@
     border-bottom: 1px solid rgba(26, 26, 26, 0.3);
     margin: 0 16px;
     scrollbar-width: none;
+    scroll-behavior: smooth;
   }
 }
 
@@ -93,10 +94,10 @@
     min-width: 100%;
     width: 1600px;
     min-height: 120px;
-
     padding: 24px 0;
     gap: 16px;
     margin-top: 0;
+    scroll-behavior: smooth;
   }
 }
 
@@ -136,6 +137,7 @@
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 
   @media (max-width: 767px) {
     min-width: 374px;

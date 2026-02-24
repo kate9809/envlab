@@ -60,6 +60,7 @@
     overflow-x: auto;
     border-bottom: 1px solid rgba(26, 26, 26, 0.3);
     margin: 0 16px;
+    scroll-behavior: smooth;
     scrollbar-width: none;
   }
 }
@@ -114,6 +115,8 @@
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 
   @media (max-width: 767px) {
     min-width: 374px;
