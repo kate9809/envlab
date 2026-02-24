@@ -633,3 +633,110 @@ function initCasesNavigation() {
 // Вызов функции после загрузки DOM
 document.addEventListener('DOMContentLoaded', initCasesNavigation);
 
+
+// скролл
+function scrollServices() {
+  
+  const servicesNames = document.querySelector('.services-names');
+  const sectionsContainer = document.querySelector('.services-sections-container');
+
+
+  // Флаг: true, если мышь над services-names
+  let isOverNames = false;
+
+  // Обработчик входа мыши в services-names
+  servicesNames.addEventListener('mouseenter', () => {
+    isOverNames = true;
+  });
+
+  // Обработчик выхода мыши из services-names
+  servicesNames.addEventListener('mouseleave', () => {
+    isOverNames = false;
+  });
+
+  // Обработчик скролла
+  document.addEventListener('wheel', (e) => {
+    // Если мышь не над services-names — ничего не делаем (скроллится страница)
+    if (!isOverNames) return;
+
+
+    // Текущие позиции прокрутки
+    const { scrollTop, scrollHeight, clientHeight } = sectionsContainer;
+    const maxScrollTop = scrollHeight - clientHeight;
+
+    // Направление скролла
+    const deltaY = e.deltaY;
+
+
+    // Если скроллим вниз и достигли конца контейнера
+    if (deltaY > 0 && scrollTop >= maxScrollTop) {
+      // Разрешаем скролл страницы (не блокируем)
+      return;
+    }
+
+    // Если скроллим вверх и находимся в начале контейнера
+    if (deltaY < 0 && scrollTop <= 0) {
+      // Разрешаем скролл страницы
+      return;
+    }
+
+    // Блокируем скролл страницы и передаём его контейнеру
+    e.preventDefault();
+    sectionsContainer.scrollTop += deltaY;
+  }, { passive: false });
+};
+
+document.addEventListener('DOMContentLoaded', scrollServices);
+
+function scrollCases() {
+
+  const casesNames = document.querySelector('.cases-names');
+  const sectionContainer = document.querySelector('.cases-sections-container');
+
+
+  // Флаг: true, если мышь над services-names
+  let isOverNames = false;
+
+  // Обработчик входа мыши в services-names
+  casesNames.addEventListener('mouseenter', () => {
+    isOverNames = true;
+  });
+
+  // Обработчик выхода мыши из services-names
+  casesNames.addEventListener('mouseleave', () => {
+    isOverNames = false;
+  });
+
+  // Обработчик скролла
+  document.addEventListener('wheel', (e) => {
+    // Если мышь не над services-names — ничего не делаем (скроллится страница)
+    if (!isOverNames) return;
+
+
+    // Текущие позиции прокрутки
+    const { scrollTop, scrollHeight, clientHeight } = sectionContainer;
+    const maxScrollTop = scrollHeight - clientHeight;
+
+    // Направление скролла
+    const deltaY = e.deltaY;
+
+
+    // Если скроллим вниз и достигли конца контейнера
+    if (deltaY > 0 && scrollTop >= maxScrollTop) {
+      // Разрешаем скролл страницы (не блокируем)
+      return;
+    }
+
+    // Если скроллим вверх и находимся в начале контейнера
+    if (deltaY < 0 && scrollTop <= 0) {
+      // Разрешаем скролл страницы
+      return;
+    }
+
+    // Блокируем скролл страницы и передаём его контейнеру
+    e.preventDefault();
+    sectionContainer.scrollTop += deltaY;
+  }, { passive: false });
+};
+
+document.addEventListener('DOMContentLoaded', scrollCases);
