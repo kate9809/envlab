@@ -138,6 +138,7 @@
   position: relative;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  overscroll-behavior-y: auto;
 
   @media (max-width: 767px) {
     min-width: 374px;
