@@ -118,7 +118,7 @@ isBuilder ? $(document).on("add.cards", function (b) { 0 != $(b.target).find(".t
     initedTypes &&
     initedTypes.destroy(); initedTypes = parseInt($(this).attr("data-words")) ? initTyped(getDataWordsArr(this), $(this)) : initTyped([$(this).attr("data-word1"), $(this).attr("data-word2"), $(this).attr("data-word3")], $(this))
   })
-}) : document.querySelectorAll(".typed-text .animated-element").forEach(function (b) { parseInt(b.getAttribute("data-words")) ? initTyped(getDataWordsArr(b), b) : initTyped([b.getAttribute("data-word1"), b.getAttribute("data-word2"), b.getAttribute("data-word3")], b) });
+}) : document.querySelectorAll(".typed-text .animated-element").forEach(function (b) { parseInt(b.getAttribute("data-words")) ? initTyped(getDataWordsArr(b), b) : initTyped([b.getAttribute("data-word1"), b.getAttribute("data-word2"), b.getAttribute("data-word3"), b.getAttribute("data-word4"), b.getAttribute("data-word5"), b.getAttribute("data-word6")], b) });
 
 //header
 
