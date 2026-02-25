@@ -387,356 +387,188 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //services
 
-function initServicesNavigation() {
-  const servicesLinks = document.querySelectorAll('.services-name-list .services-name');
-  const sections = document.querySelectorAll('.services-sections-container section');
-  const container = document.querySelector('.services-sections-container');
-  const namesList = document.querySelector('.services-name-list');
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('.cases-name');
+  const sections = document.querySelectorAll('section[id]');
+  const container = document.querySelector('.cases-names');
 
-  if (!servicesLinks.length || !sections.length || !container || !namesList) {
-    console.warn('Элементы не найдены в DOM');
+  if (!container) {
+    console.error('❌ Элемент .services-names не найден!');
+    return;
+  }
+  if (links.length === 0) {
+    console.error('❌ Ссылки .services-name не найдены!');
     return;
   }
 
-  // Функция: проверить, что сейчас мобильный вид (ширина ≤ 767px)
-  function isMobile() {
-    return window.matchMedia('(max-width: 767px)').matches;
+  function removeActiveClass() {
+    links.forEach(link => link.classList.remove('active-name'));
   }
 
-  // Функция: получить активную секцию внутри контейнера
-  function getActiveSection() {
-    const containerScrollTop = container.scrollTop;
-    let activeSection = null;
+  function scrollToStart(link) {
+    if (!link) return;
 
+    const linkRect = link.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+
+    // Расстояние от левого края контейнера до начала ссылки
+    const offset = linkRect.left - containerRect.left;
+
+    // Целевая позиция: начало ссылки должно быть в 16px от левого края контейнера
+    let targetScrollLeft = container.scrollLeft + offset - 16;
+
+
+    // ВАЖНО: не ограничиваем прокрутку справа!
+    // Даже если ссылка выйдет за границы — она должна быть у левого края
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    });
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      removeActiveClass();
+      this.classList.add('active-name');
+      scrollToStart(this);
+
+      const targetId = this.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  function updateActiveLink() {
+    let currentSection = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionBottom = sectionTop + sectionHeight;
-
-      // Учитываем scroll-padding: 96px
-      const adjustedTop = sectionTop - 96;
-      const adjustedBottom = sectionBottom - 96;
-
-      if (
-        (containerScrollTop >= adjustedTop - 100) &&
-        (containerScrollTop < adjustedBottom - 100)
-      ) {
-        activeSection = section;
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        currentSection = section.id;
       }
     });
 
-    return activeSection;
-  }
-
-  // Функция: обновить активные ссылки и прокрутить namesList на мобиле
-  function updateActiveLink() {
-    const activeSection = getActiveSection();
-
-    servicesLinks.forEach(link => {
-      const targetId = link.getAttribute('data-target');
-
-      if (activeSection && activeSection.id === targetId) {
+    links.forEach(link => {
+      const target = link.getAttribute('data-target');
+      if (target === currentSection) {
         link.classList.add('active-name');
-
-        // На мобиле — прокручиваем namesList, чтобы активная ссылка была слева
-        if (isMobile()) {
-          link.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'  // именно к левому краю
-          });
-        }
+        scrollToStart(link);
       } else {
         link.classList.remove('active-name');
       }
     });
   }
 
-  // Обработчик клика по ссылке
-  function handleLinkClick(event) {
-    event.preventDefault();
-
-    // Убираем active у всех ссылок
-    servicesLinks.forEach(item => item.classList.remove('active-name'));
-
-    // Добавляем active текущей ссылке
-    this.classList.add('active-name');
-
-    const targetId = this.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-
-    if (targetSection) {
-      if (isMobile()) {
-        // На мобиле: только прокрутка к секции (без прокрутки ссылки)
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start' // строго вверх
-        });
-      } else {
-        // На десктопе: прокрутка к секции с корректным выравниванием
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'center' // центрируем горизонтально
-        });
-      }
-    }
-
-    // На мобиле: отдельная прокрутка namesList (без анимации!)
-    if (isMobile()) {
-      this.parentNode.scrollLeft = this.offsetLeft; // мгновенная прокрутка
-    }
-  }
-
-  // Назначаем обработчики кликов
-  servicesLinks.forEach(link => link.addEventListener('click', handleLinkClick));
-
-  // Изначально выделяем первую ссылку
-  servicesLinks[0].classList.add('active-name');
-
-  // Если мобилка — сразу прокручиваем первую ссылку в начало
-  if (isMobile()) {
-    servicesLinks[0].scrollIntoView({ inline: 'start' });
-  }
-
-  // Слушаем прокрутку контейнера (не window!)
-  container.addEventListener('scroll', updateActiveLink);
-
-  // Принудительный вызов при старте
   updateActiveLink();
-}
 
-document.addEventListener('DOMContentLoaded', initServicesNavigation);
+  // Дебаунсинг для оптимизации
+  const debouncedUpdate = debounce(updateActiveLink, 100);
+  window.addEventListener('scroll', debouncedUpdate);
+  window.addEventListener('resize', debouncedUpdate);
+  container.addEventListener('scroll', debouncedUpdate);
+
+  function debounce(func, delay) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func.apply(this, args), delay);
+    };
+  }
+});
 
 //cases
 
-function initCasesNavigation() {
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('.services-name');
+  const sections = document.querySelectorAll('section[id]');
+  const container = document.querySelector('.services-names');
 
-  const casesLinks = document.querySelectorAll('.cases-name-list .cases-name');
-  const sections = document.querySelectorAll('.cases-sections-container section');
-  const container = document.querySelector('.cases-sections-container');
-  const namesList = document.querySelector('.cases-name-list');
-
-  if (!casesLinks.length || !sections.length || !container || !namesList) {
-    console.warn('Элементы не найдены в DOM');
+  if (!container) {
+    console.error('❌ Элемент .services-names не найден!');
+    return;
+  }
+  if (links.length === 0) {
+    console.error('❌ Ссылки .services-name не найдены!');
     return;
   }
 
-  // Функция: проверить, что сейчас мобильный вид (ширина ≤ 767px)
-  function isMobile() {
-    return window.matchMedia('(max-width: 767px)').matches;
+  function removeActiveClass() {
+    links.forEach(link => link.classList.remove('active-name'));
   }
 
-  // Функция: получить активную секцию внутри контейнера
-  function getActiveSection() {
-    const containerScrollTop = container.scrollTop;
-    let activeSection = null;
+  function scrollToStart(link) {
+    if (!link) return;
 
+    const linkRect = link.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+
+    // Расстояние от левого края контейнера до начала ссылки
+    const offset = linkRect.left - containerRect.left;
+
+    // Целевая позиция: начало ссылки должно быть в 16px от левого края контейнера
+    let targetScrollLeft = container.scrollLeft + offset - 16;
+
+
+    // ВАЖНО: не ограничиваем прокрутку справа!
+    // Даже если ссылка выйдет за границы — она должна быть у левого края
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    });
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      removeActiveClass();
+      this.classList.add('active-name');
+      scrollToStart(this);
+
+      const targetId = this.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  function updateActiveLink() {
+    let currentSection = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionBottom = sectionTop + sectionHeight;
-
-      // Учитываем scroll-padding: 96px
-      const adjustedTop = sectionTop - 96;
-      const adjustedBottom = sectionBottom - 96;
-
-      if (
-        (containerScrollTop >= adjustedTop - 100) &&
-        (containerScrollTop < adjustedBottom - 100)
-      ) {
-        activeSection = section;
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        currentSection = section.id;
       }
     });
 
-    return activeSection;
-  }
-
-  // Функция: обновить активные ссылки и прокрутить namesList на мобиле
-  function updateActiveLink() {
-    const activeSection = getActiveSection();
-
-    casesLinks.forEach(link => {
-      const targetId = link.getAttribute('data-target');
-
-      if (activeSection && activeSection.id === targetId) {
+    links.forEach(link => {
+      const target = link.getAttribute('data-target');
+      if (target === currentSection) {
         link.classList.add('active-name');
-
-        // На мобиле — прокручиваем namesList, чтобы активная ссылка была слева
-        if (isMobile()) {
-          link.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'  // именно к левому краю
-          });
-        }
+        scrollToStart(link);
       } else {
         link.classList.remove('active-name');
       }
     });
   }
 
-  // Обработчик клика по ссылке
-  function handleLinkClick(event) {
-    event.preventDefault();
-
-    // Убираем active у всех ссылок
-    casesLinks.forEach(item => item.classList.remove('active-name'));
-
-    // Добавляем active текущей ссылке
-    this.classList.add('active-name');
-
-    const targetId = this.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-
-    if (targetSection) {
-      if (isMobile()) {
-        // На мобиле: только прокрутка к секции (без прокрутки ссылки)
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start' // строго вверх
-        });
-      } else {
-        // На десктопе: прокрутка к секции с корректным выравниванием
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'center' // центрируем горизонтально
-        });
-      }
-    }
-
-    // На мобиле: отдельная прокрутка namesList (без анимации!)
-    if (isMobile()) {
-      this.parentNode.scrollLeft = this.offsetLeft; // мгновенная прокрутка
-    }
-  }
-
-  // Назначаем обработчики кликов
-  casesLinks.forEach(link => link.addEventListener('click', handleLinkClick));
-
-  // Изначально выделяем первую ссылку
-  casesLinks[0].classList.add('active-name');
-
-  // Если мобилка — сразу прокручиваем первую ссылку в начало
-  if (isMobile()) {
-    casesLinks[0].scrollIntoView({ inline: 'start' });
-  }
-
-  // Слушаем прокрутку контейнера (не window!)
-  container.addEventListener('scroll', updateActiveLink);
-
-  // Принудительный вызов при старте
   updateActiveLink();
-}
 
-// Вызов функции после загрузки DOM
-document.addEventListener('DOMContentLoaded', initCasesNavigation);
+  // Дебаунсинг для оптимизации
+  const debouncedUpdate = debounce(updateActiveLink, 100);
+  window.addEventListener('scroll', debouncedUpdate);
+  window.addEventListener('resize', debouncedUpdate);
+  container.addEventListener('scroll', debouncedUpdate);
 
-
-// скролл
-function scrollServices() {
-  
-  const servicesNames = document.querySelector('.services-names');
-  const sectionsContainer = document.querySelector('.services-sections-container');
-
-
-  // Флаг: true, если мышь над services-names
-  let isOverNames = false;
-
-  // Обработчик входа мыши в services-names
-  servicesNames.addEventListener('mouseenter', () => {
-    isOverNames = true;
-  });
-
-  // Обработчик выхода мыши из services-names
-  servicesNames.addEventListener('mouseleave', () => {
-    isOverNames = false;
-  });
-
-  // Обработчик скролла
-  document.addEventListener('wheel', (e) => {
-    // Если мышь не над services-names — ничего не делаем (скроллится страница)
-    if (!isOverNames) return;
-
-
-    // Текущие позиции прокрутки
-    const { scrollTop, scrollHeight, clientHeight } = sectionsContainer;
-    const maxScrollTop = scrollHeight - clientHeight;
-
-    // Направление скролла
-    const deltaY = e.deltaY;
-
-
-    // Если скроллим вниз и достигли конца контейнера
-    if (deltaY > 0 && scrollTop >= maxScrollTop) {
-      // Разрешаем скролл страницы (не блокируем)
-      return;
-    }
-
-    // Если скроллим вверх и находимся в начале контейнера
-    if (deltaY < 0 && scrollTop <= 0) {
-      // Разрешаем скролл страницы
-      return;
-    }
-
-    // Блокируем скролл страницы и передаём его контейнеру
-    e.preventDefault();
-    sectionsContainer.scrollTop += deltaY;
-  }, { passive: false });
-};
-
-document.addEventListener('DOMContentLoaded', scrollServices);
-
-function scrollCases() {
-
-  const casesNames = document.querySelector('.cases-names');
-  const sectionContainer = document.querySelector('.cases-sections-container');
-
-
-  // Флаг: true, если мышь над services-names
-  let isOverNames = false;
-
-  // Обработчик входа мыши в services-names
-  casesNames.addEventListener('mouseenter', () => {
-    isOverNames = true;
-  });
-
-  // Обработчик выхода мыши из services-names
-  casesNames.addEventListener('mouseleave', () => {
-    isOverNames = false;
-  });
-
-  // Обработчик скролла
-  document.addEventListener('wheel', (e) => {
-    // Если мышь не над services-names — ничего не делаем (скроллится страница)
-    if (!isOverNames) return;
-
-
-    // Текущие позиции прокрутки
-    const { scrollTop, scrollHeight, clientHeight } = sectionContainer;
-    const maxScrollTop = scrollHeight - clientHeight;
-
-    // Направление скролла
-    const deltaY = e.deltaY;
-
-
-    // Если скроллим вниз и достигли конца контейнера
-    if (deltaY > 0 && scrollTop >= maxScrollTop) {
-      // Разрешаем скролл страницы (не блокируем)
-      return;
-    }
-
-    // Если скроллим вверх и находимся в начале контейнера
-    if (deltaY < 0 && scrollTop <= 0) {
-      // Разрешаем скролл страницы
-      return;
-    }
-
-    // Блокируем скролл страницы и передаём его контейнеру
-    e.preventDefault();
-    sectionContainer.scrollTop += deltaY;
-  }, { passive: false });
-};
-
-document.addEventListener('DOMContentLoaded', scrollCases);
+  function debounce(func, delay) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func.apply(this, args), delay);
+    };
+  }
+});
