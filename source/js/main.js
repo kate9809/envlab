@@ -388,28 +388,20 @@ document.addEventListener('DOMContentLoaded', function () {
 //services
 
 document.addEventListener('DOMContentLoaded', function () {
-  const links = document.querySelectorAll('.cases-name');
+  const links = document.querySelectorAll('.services-name');
   const sections = document.querySelectorAll('section[id]');
-  const container = document.querySelector('.cases-names');
-
-  if (!container) {
-    console.error('❌ Элемент .services-names не найден!');
-    return;
-  }
-  if (links.length === 0) {
-    console.error('❌ Ссылки .services-name не найдены!');
-    return;
-  }
+  const container = document.querySelector('.services-names');
 
   function removeActiveClass() {
     links.forEach(link => link.classList.remove('active-name'));
   }
 
   function scrollToStart(link) {
-    if (!link) return;
+    // Удалена проверка if (!link) — теперь полагаемся на опциональные цепочки
+    const linkRect = link?.getBoundingClientRect();
+    const containerRect = container?.getBoundingClientRect();
 
-    const linkRect = link.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
+    if (!linkRect || !containerRect) return;
 
     // Расстояние от левого края контейнера до начала ссылки
     const offset = linkRect.left - containerRect.left;
@@ -417,10 +409,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Целевая позиция: начало ссылки должно быть в 16px от левого края контейнера
     let targetScrollLeft = container.scrollLeft + offset - 16;
 
-
     // ВАЖНО: не ограничиваем прокрутку справа!
     // Даже если ссылка выйдет за границы — она должна быть у левого края
-    container.scrollTo({
+    container?.scrollTo({
       left: targetScrollLeft,
       behavior: 'smooth'
     });
@@ -435,9 +426,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const targetId = this.getAttribute('data-target');
       const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      targetSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -468,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const debouncedUpdate = debounce(updateActiveLink, 100);
   window.addEventListener('scroll', debouncedUpdate);
   window.addEventListener('resize', debouncedUpdate);
-  container.addEventListener('scroll', debouncedUpdate);
+  container?.addEventListener('scroll', debouncedUpdate);
 
   function debounce(func, delay) {
     let timer;
@@ -482,18 +471,9 @@ document.addEventListener('DOMContentLoaded', function () {
 //cases
 
 document.addEventListener('DOMContentLoaded', function () {
-  const links = document.querySelectorAll('.services-name');
+  const links = document.querySelectorAll('.cases-name');
   const sections = document.querySelectorAll('section[id]');
-  const container = document.querySelector('.services-names');
-
-  if (!container) {
-    console.error('❌ Элемент .services-names не найден!');
-    return;
-  }
-  if (links.length === 0) {
-    console.error('❌ Ссылки .services-name не найдены!');
-    return;
-  }
+  const container = document.querySelector('.cases-names');
 
   function removeActiveClass() {
     links.forEach(link => link.classList.remove('active-name'));
@@ -510,7 +490,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Целевая позиция: начало ссылки должно быть в 16px от левого края контейнера
     let targetScrollLeft = container.scrollLeft + offset - 16;
-
 
     // ВАЖНО: не ограничиваем прокрутку справа!
     // Даже если ссылка выйдет за границы — она должна быть у левого края
@@ -572,3 +551,4 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 });
+
