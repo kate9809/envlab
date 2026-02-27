@@ -21,7 +21,7 @@
   position: relative;
   max-height: calc(100vh - 96px);
   overflow-y: hidden;
-  
+
   @media (max-width: 767px) {
     min-width: 390px;
     max-width: 390px;
@@ -36,19 +36,19 @@
   position: absolute;
   content: "";
   display: block;
-  width: 428px;
-  height: 535px;
+  width: clamp(200px, 25vw, 428px);
+  height: clamp(250px, 30vw, 535px);
   background-image: url("../images/pictures/photo@2x.jpg");
   background-size: cover;
   background-position: center;
-  bottom: 30px;
+  bottom: clamp(30px, 5vh, 60px);
   right: 60px;
 
   @media (max-width: 767px) {
     width: 228px;
     height: 288px;
     right: 16px;
-    bottom: -90px;
+    top: clamp(320px, 5vh, 160px);
     background-image: url("../images/pictures/photo.jpg");
   }
 }
@@ -95,5 +95,3 @@
     margin: 0 0 4px 0;
   }
 }
-
-
