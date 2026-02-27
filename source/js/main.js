@@ -18,7 +18,7 @@ $jscomp.polyfill("Array.prototype.find", function (b) { return b ? b : function 
       function b(a, h) { if (!(this instanceof b)) throw new TypeError("Cannot call a class as a function"); g.initializer.load(this, h, a); this.begin() } f(b, [{ key: "toggle", value: function () { this.pause.status ? this.start() : this.stop() } }, {
         key: "stop", value: function () {
           this.typingComplete ||
-          this.pause.status || (this.toggleBlinking(!0), this.pause.status = !0, this.options.onStop(this.arrayPos, this))
+            this.pause.status || (this.toggleBlinking(!0), this.pause.status = !0, this.options.onStop(this.arrayPos, this))
         }
       }, { key: "start", value: function () { !this.typingComplete && this.pause.status && (this.pause.status = !1, this.pause.typewrite ? this.typewrite(this.pause.curString, this.pause.curStrPos) : this.backspace(this.pause.curString, this.pause.curStrPos), this.options.onStart(this.arrayPos, this)) } }, { key: "destroy", value: function () { this.reset(!1); this.options.onDestroy(this) } }, {
         key: "reset", value: function () {
@@ -116,7 +116,7 @@ function initTyped(b, c) { c[0] && (c = c[0]); return new Typed(c, { strings: b,
 isBuilder ? $(document).on("add.cards", function (b) { 0 != $(b.target).find(".typed-text").length && $(b.target).find(".animated-element").each(function () { initedTypes && initedTypes.destroy(); initedTypes = parseInt($(this).attr("data-words")) ? initTyped(getDataWordsArr(this), $(this)) : initTyped([$(this).attr("data-word1"), $(this).attr("data-word2"), $(this).attr("data-word3")], $(this)) }) }).on("changeParameter.cards", function (b, c, d) {
   0 != c.indexOf("animatedWord") && "typeSpeed" != c && "wordsCount" != c || $(b.target).find(".animated-element").each(function () {
     initedTypes &&
-    initedTypes.destroy(); initedTypes = parseInt($(this).attr("data-words")) ? initTyped(getDataWordsArr(this), $(this)) : initTyped([$(this).attr("data-word1"), $(this).attr("data-word2"), $(this).attr("data-word3")], $(this))
+      initedTypes.destroy(); initedTypes = parseInt($(this).attr("data-words")) ? initTyped(getDataWordsArr(this), $(this)) : initTyped([$(this).attr("data-word1"), $(this).attr("data-word2"), $(this).attr("data-word3")], $(this))
   })
 }) : document.querySelectorAll(".typed-text .animated-element").forEach(function (b) { parseInt(b.getAttribute("data-words")) ? initTyped(getDataWordsArr(b), b) : initTyped([b.getAttribute("data-word1"), b.getAttribute("data-word2"), b.getAttribute("data-word3"), b.getAttribute("data-word4"), b.getAttribute("data-word5"), b.getAttribute("data-word6")], b) });
 
@@ -131,7 +131,7 @@ navToggle.addEventListener('click', function () {
   if (navMain.classList.contains('header-navigation--closed')) {
     navMain.classList.remove('header-navigation--closed');
     navMain.classList.add('header-navigation--opened');
-   } else {
+  } else {
     navMain.classList.add('header-navigation--closed');
     navMain.classList.remove('header-navigation--opened');
   }
@@ -149,28 +149,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIndex = 0;
   const totalItems = items.length;
-  const gap = 16; // Заданный gap между элементами (в пикселях)
+  const gap = 16; // gap между элементами
 
   // Инициализация
   counterTotal.textContent = totalItems;
   updateCounter();
   updateButtons();
 
-  // Медиа-запрос для мобильной версии
   const mediaQuery = window.matchMedia('(max-width: 767px)');
 
   const handleResize = () => {
     if (mediaQuery.matches) {
-      // Мобильная версия — включаем логику прокрутки
       prevButton.addEventListener('click', onPrevClick);
       nextButton.addEventListener('click', onNextClick);
+      testimonialsList.parentElement.style.display = 'flex';
+      scrollToItem(); // Пересчитаем позицию при изменении размера
     } else {
-      // Десктоп — убираем обработчики, сбрасываем стили
       prevButton.removeEventListener('click', onPrevClick);
       nextButton.removeEventListener('click', onNextClick);
-      testimonialsList.style.transform = 'translateX(0)';
-      items.forEach(item => item.classList.remove('active'));
-      if (items[0]) items[0].classList.add('active');
+      resetSlider();
     }
   };
 
@@ -197,17 +194,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function scrollToItem() {
-    // Ширина одного элемента (с учётом flex-shrink: 0)
     const itemWidth = items[currentIndex].offsetWidth;
-    // Общий сдвиг: ширина элемента + gap (но не для первого элемента)
-    const offset = currentIndex * (itemWidth + gap);
+
+    // Базовый расчёт смещения
+    let offset = 0;
+    if (currentIndex > 0) {
+      const totalPrevWidth = currentIndex * itemWidth;
+      const totalPrevGap = (currentIndex - 1) * gap;
+      offset = totalPrevWidth + totalPrevGap;
+    }
+
+    // ДОБАВЛЯЕМ сдвиг на 16 px ТОЛЬКО для 2‑го и 3‑го элементов (index = 1 и 2)
+    if (currentIndex === 1 || currentIndex === 2) {
+      offset += 16;
+    }
 
     testimonialsList.style.transform = `translateX(-${offset}px)`;
 
-    // Обновляем классы active
     items.forEach((item, index) => {
       item.classList.toggle('active', index === currentIndex);
     });
+  }
+  
+  function resetSlider() {
+    testimonialsList.style.transform = 'translateX(0)';
+    items.forEach(item => item.classList.remove('active'));
+    if (items[0]) items[0].classList.add('active');
+    currentIndex = 0;
+    updateCounter();
+    updateButtons();
   }
 
   function updateCounter() {
@@ -218,12 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
     prevButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex === totalItems - 1;
 
-    // Добавляем/убираем класс disabled для стилизации
     prevButton.classList.toggle('disabled', prevButton.disabled);
     nextButton.classList.toggle('disabled', nextButton.disabled);
   }
 });
-
 
 //popup
 
